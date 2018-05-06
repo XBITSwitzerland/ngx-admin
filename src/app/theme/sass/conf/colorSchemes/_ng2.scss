@@ -5,6 +5,7 @@ $default-text: $default; // default text color layout (usually is the same as $d
 $content-text: $default-text; // content text color on card, panels, form, etc
 $help-text: $default-text; // additional text color for hits
 
+
 $label-text: $default-text; // labels color
 $disabled: rgba(255, 255, 255, 0.4); // color for disabled state
 $disabled-bg: tint($disabled, 15%); // background color for disable state
@@ -15,7 +16,7 @@ $input-background: rgba(255, 255, 255, 0.1); // input border color for hover
 $dropdown-text: #7d7d7d; // dropdown text color
 
 // sidebar colors
-$sidebar: #282828;
+$sidebar: #494948;
 $sidebar-text: #ffffff;
 
 // specific components colors
@@ -32,12 +33,17 @@ $bootstrap-panel-header-bg: transparent;
 $bootstrap-panel-header-border: 1px solid $border-light;
 $bootstrap-panel-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
 
+
+// XBIT Colors
+$light-gray: #606060;
+$dark-gray: #454545;
+
 // color scheme
-$primary: #00abff !default;
-$info: #40daf1 !default;
-$success: #8bd22f !default;
-$warning: #e7ba08 !default;
-$danger: #f95372 !default;
+$primary: #A52336 !default;
+$info: #4AABC8 !default;
+$success: #91C784 !default;
+$warning: #955D28 !default;
+$danger: #E6A700 !default;
 
 $primary-light: tint($primary, 30%);
 $info-light: tint($info, 30%);
@@ -74,7 +80,7 @@ $hoverlink: darken($activelink, 20%);
     height: 100%;
     top: 0;
     left: 0;
-    background: url($mainBgUrl) no-repeat center center;
+    background-color: #606060;
     background-size: cover;
     will-change: transform;
     z-index: 0;
