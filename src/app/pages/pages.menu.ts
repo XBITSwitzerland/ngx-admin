@@ -15,6 +15,54 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'miners',
+        data: {
+          menu: {
+            title: 'general.menu.miners',
+            icon: 'ion-speedometer',
+            selected: false,
+            expanded: false,
+            order: 1
+          }
+        }
+      },
+      {
+        path: 'dashboard',
+        data: {
+          menu: {
+            title: 'general.menu.hosting',
+            icon: 'ion-calendar',
+            selected: false,
+            expanded: false,
+            order: 2
+          }
+        }
+      },
+      {
+        path: 'dashboard',
+        data: {
+          menu: {
+            title: 'general.menu.balances',
+            icon: 'ion-stats-bars',
+            selected: false,
+            expanded: false,
+            order: 3
+          }
+        }
+      },
+      {
+        path: 'dashboard',
+        data: {
+          menu: {
+            title: 'general.menu.account',
+            icon: 'ion-android-person',
+            selected: false,
+            expanded: false,
+            order: 4
+          }
+        }
+      },
+      {
         path: 'editors',
         data: {
           menu: {

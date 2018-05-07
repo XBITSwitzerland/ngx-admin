@@ -7,7 +7,6 @@ $text-color: #ffffff;
   align-items: center;
   height: 100%;
   width: 100%;
- 
 }
 
 .auth-block {
@@ -137,8 +136,10 @@ a.forgot-pass {
 
 .auth-input-own {
   background-color: white !important;
+  color: $dark-gray !important;
   border-radius: 2px !important;
   height: 44px !important;
+  border: 1px solid $light-gray;
 }
 
 .auth-input-own::placeholder {

@@ -12,6 +12,7 @@
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     .popular-app-img {
+      text-align: center;
       width: 260px;
       position: absolute;
       transform: translateY(-50%) translate(-50%);
@@ -20,7 +21,7 @@
 
       .logo-text {
         display: inline-block;
-        margin: 10px;
+        margin: 30px 10px 10px 10px;
         font-size: 26px;
         color: $content-text;
       }

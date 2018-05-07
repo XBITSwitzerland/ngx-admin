@@ -19,6 +19,10 @@
     },
     "menu": {
       "dashboard": "Dashboard",
+      "miners": "Miners",
+      "hosting": "Hosting",
+      "account": "Account",
+      "balances": "Balances",
       "editors": "Editors",
       "ck_editor": "CKEditor",
       "components": "Components",
@@ -55,7 +59,7 @@
   },
   "dashboard": {
     "acquisition_channels": "Acquisition Channels",
-    "users_by_country": "Users by Country",
+    "users_by_country": "Miners Location",
     "revenue": "Revenue",
     "feed": "Feed",
     "todo_list": "To Do List",
@@ -68,12 +72,12 @@
     "purchases": "Purchases",
     "active_users": "Active Users",
     "returned": "Returned",
-    "popular_app": {
-      "super_app": "Super App",
-      "most_popular_app": "Most Popular App",
-      "total_visits": "Total Visits",
-      "new_visits": "New Visits",
-      "sales": "Sales"
+    "miningfarm_stats": {
+      "name": "XBIT Miningfarm",
+      "investment": "Total Investment",
+      "miners": "Miners",
+      "profit": "Profit",
+      "return": "ROI"
     },
     "todo": {
       "task_todo": "Task to do.."
