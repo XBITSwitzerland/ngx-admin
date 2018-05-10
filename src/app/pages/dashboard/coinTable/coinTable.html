@@ -3,25 +3,23 @@
     <thead>
     <tr class="black-muted-bg">
       <th class="browser-icons"></th>
-      <th>Browser</th>
-      <th class="align-right">Visits</th>
+      <th class="align-right">Name</th>
+      <th class="align-right">Price</th>
+      <th class="align-right">Change</th>
       <th class="table-arr"></th>
-      <th class="align-right">Purchases</th>
-      <th class="table-arr"></th>
-      <th class="align-right">%</th>
-      <th class="table-arr"></th>
+      <th class="align-right">Balance</th>
+      <th class="align-right">Mined last 24h</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of metricsTableData" class="no-top-border">
+    <tr *ngFor="let item of coinTableData" class="no-top-border">
       <td><img src="{{ ( item.image | baAppPicture ) }}" width="20" height="20"></td>
-      <td ngClass="nowrap">{{item.browser}}</td>
-      <td class="align-right">{{item.visits}}</td>
-      <td class="table-arr"><i [ngClass]="{'icon-up': item.isVisitsUp, 'icon-down': !item.isVisitsUp }"></i></td>
-      <td class="align-right">{{item.purchases}}</td>
-      <td class="table-arr"><i [ngClass]="{'icon-up': item.isPurchasesUp, 'icon-down': !item.isPurchasesUp }"></i></td>
-      <td class="align-right">{{item.percent}}</td>
-      <td class="table-arr"><i [ngClass]="{'icon-up': item.isPercentUp, 'icon-down': !item.isPercentUp }"></i></td>
+      <td class="align-right">{{item.name}}</td>
+      <td class="align-right">{{item.price}} $</td>
+      <td class="align-right">{{item.change}} %</td>
+      <td class="table-arr"><i [ngClass]="{'icon-up': item.isPriceUp, 'icon-down': !item.isPriceUp }"></i></td>
+      <td class="align-right">{{item.balance}} {{item.shortName}} / {{item.balance * item.price}} $</td>
+      <td class="align-right">{{item.minedLast}} {{item.shortName}} / {{item.minedLast * item.price}} $</td>
     </tr>
     </tbody>
   </table>

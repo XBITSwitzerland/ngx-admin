@@ -4,54 +4,54 @@ import { Injectable } from '@angular/core';
 export class CoinTableService {
   coinTableData = [
     {
-      image: 'app/browsers/chrome.svg',
-      browser: 'Google Chrome',
-      visits: '10,392',
-      isVisitsUp: true,
-      purchases: '4,214',
-      isPurchasesUp: true,
-      percent: '45%',
-      isPercentUp: true
+      image: 'coins/bitcoin.jpg',
+      name: 'Bitcoin',
+      shortName: 'BTC',
+      price: 10392,
+      change: 1.54,
+      isPriceUp: true,
+      balance: 0.738,
+      minedLast: 0.0456
     },
     {
-      image: 'app/browsers/firefox.svg',
-      browser: 'Mozilla Firefox',
-      visits: '7,873',
-      isVisitsUp: true,
-      purchases: '3,031',
-      isPurchasesUp: false,
-      percent: '28%',
-      isPercentUp: true
+      image: 'coins/digibyte.png',
+      name: 'Ethereum',
+      shortName: 'ETH',
+      price: 760,
+      change: 5.54,
+      isPriceUp: true,
+      balance: 3.578,
+      minedLast: 0.456
     },
     {
-      image: 'app/browsers/ie.svg',
-      browser: 'Internet Explorer',
-      visits: '5,890',
-      isVisitsUp: false,
-      purchases: '2,102',
-      isPurchasesUp: false,
-      percent: '17%',
-      isPercentUp: false
+      image: 'coins/litecoin.jpg',
+      name: 'Litecoin',
+      shortName: 'LTC',
+      price: 145,
+      change: 8.54,
+      isPriceUp: true,
+      balance: 12.748,
+      minedLast: 3.578
     },
     {
-      image: 'app/browsers/safari.svg',
-      browser: 'Safari',
-      visits: '4,001',
-      isVisitsUp: false,
-      purchases: '1,001',
-      isPurchasesUp: false,
-      percent: '14%',
-      isPercentUp: true
+      image: 'coins/monero.png',
+      name: 'Monero',
+      shortName: 'XMR',
+      price: 256,
+      change: 9.54,
+      isPriceUp: true,
+      balance: 2.578,
+      minedLast: 0.738
     },
     {
-      image: 'app/browsers/opera.svg',
-      browser: 'Opera',
-      visits: '1,833',
-      isVisitsUp: true,
-      purchases: '83',
-      isPurchasesUp: true,
-      percent: '5%',
-      isPercentUp: false
+      image: 'coins/verge.jpg',
+      name: 'Verge',
+      shortName: 'XVG',
+      price: 0.078,
+      change: 23.54,
+      isPriceUp: true,
+      balance: 29004.483,
+      minedLast: 1479.83
     }
   ];
 }

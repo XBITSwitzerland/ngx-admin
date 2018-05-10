@@ -11,9 +11,12 @@
     height: 260px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    .popular-app-image {
+      height: 100px;
+    }
     .popular-app-img {
       text-align: center;
-      width: 260px;
+      width: auto;
       position: absolute;
       transform: translateY(-50%) translate(-50%);
       top: 50%;

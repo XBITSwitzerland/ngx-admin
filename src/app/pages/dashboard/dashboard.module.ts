@@ -23,6 +23,7 @@ import { TodoService } from './todo/todo.service';
 import { TrafficChartService } from './trafficChart/trafficChart.service';
 import { UsersMapService } from './usersMap/usersMap.service';
 import { CoinTable } from './coinTable/coinTable.component';
+import { CoinTableService } from './coinTable/coinTable.service';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { CoinTable } from './coinTable/coinTable.component';
     routing
   ],
   declarations: [
+    CoinTable,
     PopularApp,
     PieChart,
     TrafficChart,
@@ -50,7 +52,8 @@ import { CoinTable } from './coinTable/coinTable.component';
     PieChartService,
     TodoService,
     TrafficChartService,
-    UsersMapService
+    UsersMapService,
+    CoinTableService
   ]
 })
 export class DashboardModule {}

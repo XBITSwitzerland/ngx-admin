@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+
 import {CoinTableService} from './coinTable.service';
 
 @Component({
@@ -7,12 +8,9 @@ import {CoinTableService} from './coinTable.service';
   styleUrls: ['./coinTable.scss']
 })
 export class CoinTable {
-  ngOnInit() {
-    
-  }
   coinTableData:Array<any>;
 
-  constructor(private _basicTablesService: CoinTableService) {
-    this.coinTableData = _basicTablesService.coinTableData;
+  constructor(private _coinTablesService: CoinTableService) {
+    this.coinTableData = _coinTablesService.coinTableData;
   }
 }
