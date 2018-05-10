@@ -27,7 +27,7 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'dashboard',
+        path: 'hosting',
         data: {
           menu: {
             title: 'general.menu.hosting',
@@ -39,7 +39,7 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'dashboard',
+        path: 'balances',
         data: {
           menu: {
             title: 'general.menu.balances',
@@ -51,7 +51,7 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'dashboard',
+        path: 'profile',
         data: {
           menu: {
             title: 'general.menu.account',

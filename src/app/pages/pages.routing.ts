@@ -21,6 +21,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       { path: 'miners', loadChildren: './miners/miners.module#MinersModule' },
+      { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
+      { path: 'hosting', loadChildren: './hosting/hosting.module#HostingModule' },
       { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
       { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
       { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },

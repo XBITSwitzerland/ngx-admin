@@ -2,8 +2,8 @@ import { NgModule }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Profile } from './profile.component';
-import { routing } from './profile.routing';
+import { Hosting } from './hosting.component';
+import { routing } from './hosting.routing';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { routing } from './profile.routing';
     routing
   ],
   declarations: [
-    Profile
+    Hosting
   ]
 })
-export class ProfileModule {}
+export class HostingModule {}
