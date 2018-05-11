@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { Balances } from './balances.component';
 import { routing } from './balances.routing';
+import { BalanceTable } from './balanceTable/balanceTable.component';
+import { BalanceTableService } from './balanceTable/balanceTable.service';
 
 @NgModule({
   imports: [
@@ -12,7 +14,11 @@ import { routing } from './balances.routing';
     routing
   ],
   declarations: [
-    Balances
+    Balances,
+    BalanceTable
+  ],
+  providers: [
+    BalanceTableService
   ]
 })
 export class BalancesModule {}
