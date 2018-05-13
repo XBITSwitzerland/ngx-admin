@@ -58,10 +58,12 @@
     "created_with": "Created with"
   },
   "dashboard": {
-    "acquisition_channels": "Acquisition Channels",
+    "acquisition_channels": "Miners",
     "users_by_country": "Miners Location",
     "revenue": "Revenue",
     "feed": "Feed",
+    "balances": "Balances",
+    "hashrate": "Hashrate",
     "todo_list": "To Do List",
     "calendar": "Calendar",
     "new_visits": "New Visits",

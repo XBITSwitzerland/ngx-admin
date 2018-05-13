@@ -24,6 +24,8 @@ import { TrafficChartService } from './trafficChart/trafficChart.service';
 import { UsersMapService } from './usersMap/usersMap.service';
 import { CoinTable } from './coinTable/coinTable.component';
 import { CoinTableService } from './coinTable/coinTable.service';
+import { HashrateChart } from './hashrateChart/hashrateChart.component';
+import { HashrateChartService } from './hashrateChart/hashrateChart.service';
 
 @NgModule({
   imports: [
@@ -43,7 +45,8 @@ import { CoinTableService } from './coinTable/coinTable.service';
     Feed,
     Todo,
     Calendar,
-    Dashboard
+    Dashboard,
+    HashrateChart
   ],
   providers: [
     CalendarService,
@@ -53,7 +56,8 @@ import { CoinTableService } from './coinTable/coinTable.service';
     TodoService,
     TrafficChartService,
     UsersMapService,
-    CoinTableService
+    CoinTableService,
+    HashrateChartService
   ]
 })
 export class DashboardModule {}
