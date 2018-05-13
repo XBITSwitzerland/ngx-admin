@@ -12,6 +12,16 @@ export class BalanceTableService {
       isPriceUp: true,
       balance: 0.876,
       wallet: 'asdf'
+    },
+    {
+      image: 'assets/img/coins/bitcoin.jpg',
+      name: 'Bitcoin',
+      shortname: 'BTC',
+      price: 9650,
+      change: 11.5,
+      isPriceUp: true,
+      balance: 0.876,
+      wallet: 'asdf'
     }
   ];
 }
