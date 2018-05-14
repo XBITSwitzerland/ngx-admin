@@ -59,6 +59,7 @@
   },
   "dashboard": {
     "acquisition_channels": "Miners",
+    "mined_last": "Mined last",
     "users_by_country": "Miners Location",
     "revenue": "Revenue",
     "feed": "Feed",
@@ -85,7 +86,7 @@
       "task_todo": "Task to do.."
     },
     "traffic_chart": {
-      "view_total": "Views Total"
+      "view_total": "Miners Total"
     }
   },
   "tree_view": {

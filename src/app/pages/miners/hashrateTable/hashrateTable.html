@@ -4,6 +4,7 @@
     <tr class="black-muted-bg">
       <th class="browser-icons"></th>
       <th class="align-right">Name</th>
+      <th class="align-right">Hashrate</th>
       <th class="align-right">Mined last 24h</th>
     </tr>
     </thead>
@@ -11,6 +12,7 @@
     <tr *ngFor="let item of hashrateTableData" class="no-top-border">
       <td><img src="{{ ( item.image | baAppPicture ) }}" width="20" height="20"></td>
       <td class="align-right">{{item.name}} ({{item.shortName}})</td>
+      <td class="align-right">{{item.hashrate}} {{item.hashrateSuffix}}</td>
       <td class="align-right">{{item.minedLast}} {{item.shortName}} / {{item.minedLast * item.price}} $</td>
     </tr>
     </tbody>
