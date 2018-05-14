@@ -13,6 +13,9 @@ import { TrafficChartService } from './trafficChart/trafficChart.service';
 import { HashrateTable } from './hashrateTable/hashrateTable.component';
 import { HashrateTableService } from './hashrateTable/hashrateTable.service';
 
+import { MinersTable } from './minersTable/minersTable.component';
+import { MinersTableService } from './minersTable/minersTable.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -24,11 +27,13 @@ import { HashrateTableService } from './hashrateTable/hashrateTable.service';
   declarations: [
     Miners,
     HashrateTable,
-    TrafficChart
+    TrafficChart,
+    MinersTable
   ],
   providers: [
     HashrateTableService,
-    TrafficChartService
+    TrafficChartService,
+    MinersTableService
   ]
 })
 export class MinersModule {}

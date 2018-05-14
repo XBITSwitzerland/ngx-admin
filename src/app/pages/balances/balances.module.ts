@@ -16,6 +16,7 @@ import { BalanceTableService } from './balanceTable/balanceTable.service';
     routing,
     NgaModule,
     AppTranslationModule
+    
   ],
   declarations: [
     Balances,

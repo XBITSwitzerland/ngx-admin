@@ -1,0 +1,24 @@
+<div class="horizontal-scroll">
+  <table class="table table-hover">
+    <thead>
+    <tr class="black-muted-bg">
+      <th class="browser-icons"></th>
+      <th class="align-right">Name</th>
+      <th class="align-right">Algorithm</th>
+      <th class="align-right">Hashrate</th>
+      <th class="align-right">Pieces</th>
+      <th class="align-right">Total Hashrate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of minersTableData" class="no-top-border">
+      <td><img src="{{ ( item.image | baAppPicture ) }}"  height="40"></td>
+      <td class="align-right">{{item.name}}</td>
+      <td class="align-right">{{item.algorithm}}</td>
+      <td class="align-right">{{item.hashrate}} {{item.hashrateSuffix}}</td>
+      <td class="align-right">{{item.pieces}}x</td>
+      <td class="align-right">{{item.pieces * item.hashrate}} {{item.hashrateSuffix}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
