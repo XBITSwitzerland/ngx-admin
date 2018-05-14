@@ -15,11 +15,11 @@
     <tbody>
     <tr *ngFor="let item of balanceTableData" class="no-top-border">
       <td class="balance-table-data"><img src="{{ ( item.image ) }}" width="30" height="30"></td>
-      <td class="align-right balance-table-data">{{item.name}}</td>
+      <td class="align-right balance-table-data">{{item.name}} ({{item.shortname}})</td>
       <td class="align-right balance-table-data">{{item.price}} $</td>
       <td class="align-right balance-table-data">{{item.change}} %</td>
       <td class="table-arr balance-table-data"><i [ngClass]="{'icon-up': item.isPriceUp, 'icon-down': !item.isPriceUp }"></i></td>
-      <td class="align-right balance-table-data">{{item.balance}}</td>
+      <td class="align-right balance-table-data">{{item.balance}} {{item.shortname}} / {{item.balance * item.price}} $</td>
       <td class="align-right balance-table-data"><input class="form-control wallet-address-input" type="text" ></td>
       <td class="align-right balance-table-data"><button class="btn btn-primary">Withdraw</button></td>
     </tr>
