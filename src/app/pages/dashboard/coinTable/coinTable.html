@@ -5,9 +5,9 @@
       <th class="browser-icons"></th>
       <th class="align-right">Name</th>
       <th class="align-right">Price</th>
-      <th class="align-right">Change</th>
-      <th class="table-arr"></th>
-      <th class="align-right">Balance</th>
+      <th class="align-right col-s-0">Change</th>
+      <th class="table-arr col-s-0"></th>
+      <th class="align-right col-s-0">Balance</th>
       <th class="align-right">Mined last 24h</th>
     </tr>
     </thead>
@@ -16,9 +16,9 @@
       <td><img src="{{ ( item.image | baAppPicture ) }}" width="20" height="20"></td>
       <td class="align-right">{{item.name}} ({{item.shortName}})</td>
       <td class="align-right">{{item.price}} $</td>
-      <td class="align-right">{{item.change}} %</td>
-      <td class="table-arr"><i [ngClass]="{'icon-up': item.isPriceUp, 'icon-down': !item.isPriceUp }"></i></td>
-      <td class="align-right">{{item.balance}} {{item.shortName}} / {{item.balance * item.price}} $</td>
+      <td class="align-right col-s-0">{{item.change}} %</td>
+      <td class="table-arr col-s-0"><i [ngClass]="{'icon-up': item.isPriceUp, 'icon-down': !item.isPriceUp }"></i></td>
+      <td class="align-right col-s-0">{{item.balance}} {{item.shortName}} / {{item.balance * item.price}} $</td>
       <td class="align-right">{{item.minedLast}} {{item.shortName}} / {{item.minedLast * item.price}} $</td>
     </tr>
     </tbody>

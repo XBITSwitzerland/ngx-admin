@@ -31,6 +31,9 @@
       max-width: 100%;
       flex: 0 0 100%
     }
+    .col-s-0 {
+      visibility: hidden;
+    }
   }
 
   .pie-chart-item {

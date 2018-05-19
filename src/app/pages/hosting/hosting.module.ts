@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { Hosting } from './hosting.component';
 import { routing } from './hosting.routing';
 
+import { HostingTable } from './hostingTable/hostingTable.component';
+import { HostingTableService } from './hostingTable/hostingTable.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,7 +15,11 @@ import { routing } from './hosting.routing';
     routing
   ],
   declarations: [
-    Hosting
+    Hosting,
+    HostingTable
+  ],
+  providers: [
+    HostingTableService
   ]
 })
 export class HostingModule {}

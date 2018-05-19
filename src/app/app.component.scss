@@ -109,6 +109,12 @@
     @include sidebar-overlap();
   }
 
+  @media (max-width: 700px) {
+    .col-s-0 {
+      display:none;
+    }
+  }
+
   @media (max-width: $resXS) {
     .menu-collapsed {
       @include sidebar-hidden();
