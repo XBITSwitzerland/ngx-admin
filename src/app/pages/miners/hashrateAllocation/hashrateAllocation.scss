@@ -19,6 +19,7 @@ background-color:yellow;
 width: max-content;
 background-color: orange;
 padding: 20px;
+margin: 10px;
 }
 
 .hashrate-allocation-element-header {
@@ -27,6 +28,7 @@ padding: 20px;
 
 .hashrate-allocation-element-content {
     background-color: blue;
+
 }
 
 .hashrate-allocation-element-range {
@@ -35,4 +37,11 @@ padding: 20px;
     background-color: pink;
     margin-left: auto;
     margin-right: auto;
+}
+
+// Grid Definition
+.hashrate-allocation-content {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
 }

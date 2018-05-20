@@ -2,17 +2,17 @@
   <div class="hashrate-allocation-menu">
       <h6>Select Algorithm</h6>
       <select class="form-control" id="allocation-algorithm">
-          <option>SHA-256</option>
-          <option>SCRYPT</option>
-          <option>ETHASH</option>
-          <option>CRYPTNIGHT</option>
-          <option>X11</option>
+          <option value="SHA-256">SHA-256</option>
+          <option value="SCRYPT">SCRYPT</option>
+          <option value="ETHASH">ETHASH</option>
+          <option value="CRYPTONIGH">CRYPTONIGHT</option>
+          <option value="X11">X11</option>
         </select>
   </div>
-  <div class="hashrate-allocation-content">
-    <div class="hashrate-allocation-element">
+  <div class="hashrate-allocation-content" *ngFor="let item of allocationTableData">
+    <div *ngIf="item.algorithm === selectedAlgorithm" class="hashrate-allocation-element">
       <div class="hashrate-allocation-element-header">
-      <h6>Bitcoin</h6>
+      <h6>{{item.name}}</h6>
       </div>
       <div class="hashrate-allocation-element-content">
         <div class="hashrate-allocation-element-range">
