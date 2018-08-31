@@ -16,7 +16,7 @@ export class GenericHttpService {
 
   get(url: string) {
     return this.http.get(url);
-}
+  }
   
   // Get API Call
   // get(url): Observable<any> {
