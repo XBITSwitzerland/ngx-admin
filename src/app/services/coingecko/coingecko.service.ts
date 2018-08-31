@@ -11,7 +11,7 @@ export class CoingeckoService {
     baseUrl = "https://api.coinmarketcap.com/v2/"
     API_Key = "35e7e2e4-95f5-4633-912a-19229d3559c2"
 
-    getPing(): Observable<string> {
+    getPing() {
       var url = this.baseUrl + '/ticker/1/';
       return this.genericHttpService.get(url);
     }

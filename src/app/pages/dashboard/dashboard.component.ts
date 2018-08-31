@@ -9,9 +9,9 @@ import { CoingeckoService } from '../../services/coingecko/coingecko.service';
 export class Dashboard {
 
   constructor(private service: CoingeckoService) {
-    service.getPing().subscribe(answer=>{
-      console.log(answer);
-    });
+  service.getPing().subscribe((res) => {
+    console.log(res.json());
+  });
   }
 
 }
