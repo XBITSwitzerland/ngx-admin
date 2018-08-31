@@ -27,6 +27,8 @@ import { CoinTableService } from './coinTable/coinTable.service';
 import { HashrateChart } from './hashrateChart/hashrateChart.component';
 import { HashrateChartService } from './hashrateChart/hashrateChart.service';
 
+import { CoingeckoService } from '../../services/coingecko/coingecko.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { HashrateChartService } from './hashrateChart/hashrateChart.service';
     TrafficChartService,
     UsersMapService,
     CoinTableService,
-    HashrateChartService
+    HashrateChartService,
+    CoingeckoService
   ]
 })
 export class DashboardModule {}

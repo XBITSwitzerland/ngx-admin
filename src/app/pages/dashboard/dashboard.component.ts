@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { CoingeckoService } from '../../services/coingecko/coingecko.service';
 
 @Component({
   selector: 'dashboard',
@@ -7,7 +8,10 @@ import {Component} from '@angular/core';
 })
 export class Dashboard {
 
-  constructor() {
+  constructor(private service: CoingeckoService) {
+    service.getPing().subscribe(answer=>{
+      console.log(answer);
+    });
   }
 
 }
