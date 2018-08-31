@@ -5,6 +5,7 @@ import { GenericHttpService } from '../generichttp/generic-http.service';
 import { getTypeNameForDebugging } from '@angular/core/src/change_detection/differs/iterable_differs';
 
 @Injectable()
+
 export class CoingeckoService {
 
     baseUrl = "https://api.coinmarketcap.com/v2/"
