@@ -11,74 +11,74 @@ export class CoinmarketcapService {
 
     baseUrl = "https://api.coinmarketcap.com/v2/"
 
-    getTicker(id: string) {
+    public getTicker(id: string) {
       var url = this.baseUrl + '/ticker/' + id + '/';
       return this.genericHttpService.getOne<CoinMarketCapCoin>(url, CoinMarketCapCoin);
     }
 
     // These Coins are minable for Customers
-    getBitcoin() {
+    public getBitcoin() {
       return this.getTicker("1");
     }
 
-    getEthereum() {
+    public getEthereum() {
       return this.getTicker("1027");
     }
 
-    getLitecoin() {
+    public getLitecoin() {
       return this.getTicker("2");
     }
 
-    getEthereumClassic() {
+    public getEthereumClassic() {
       return this.getTicker("1321");
     }
 
-    getMonero() {
+    public getMonero() {
       return this.getTicker("328");
     }
 
-    getDash() {
+    public getDash() {
       return this.getTicker("131");
     }
 
-    getVerge() {
+    public getVerge() {
       return this.getTicker("693");
     }
 
-    getDogecoin() {
+    public getDogecoin() {
       return this.getTicker("74");
     }
 
-    getZCash() {
+    public getZCash() {
       return this.getTicker("1473");
     }
 
-    getDigibyte() {
+    public getDigibyte() {
       return this.getTicker("109");
     }
 
     // These Coins are not minable in the current version
-    getBytecoin() {
+    public getBytecoin() {
       return this.getTicker("372");
     }
 
-    getDecred() {
+    public getDecred() {
       return this.getTicker("1168");
     }
 
-    getBitcoingold() {
+    public getBitcoingold() {
       return this.getTicker("2083");
     }
 
-    getSiacoin() {
+    public getSiacoin() {
       return this.getTicker("1042");
     }
 
-    getKomodo() {
+    public getKomodo() {
       return this.getTicker("1521");
     }
 
-    getZcoin() {
+    public getZcoin() {
       return this.getTicker("1414");
     }
 
