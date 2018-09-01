@@ -9,7 +9,7 @@ import { CoinmarketcapService } from '../../services/coinmarketcap/coinmarketcap
 export class Dashboard {
 
   constructor(private service: CoinmarketcapService) {
-  service.getBitCoin().subscribe((res) => {
+  service.getBitcoin().subscribe((res) => {
     console.log(res);
   });
   }
