@@ -330,18 +330,20 @@ export class XBitApiService {
         return this.genericHttpService.getOne<UserInformation>(url, UserInformation);
     }
     // Post UserInformation
-    public PostUserInformation () {
-        
+    public PostUserInformation (body: any) {
+        var url = this.baseUrl + '/userinformation';
+        return this.genericHttpService.post(url, body);
     }
     // Put UserInformation
-    public PutUserInformation () {
-        
+    public PutUserInformation (body: any) {
+        var url = this.baseUrl + '/userinformation';
+        return this.genericHttpService.post(url, body);
     }
     // Delete UserInformation
-    public DeleteUserInformation () {
+    public DeleteUserInformation (id: string) {
         
     }
-    
+
   constructor(private genericHttpService: GenericHttpService) { }
 
 }
