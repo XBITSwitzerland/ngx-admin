@@ -11,74 +11,74 @@ export class CoinmarketcapService {
 
     baseUrl = "https://api.coinmarketcap.com/v2/"
 
-    public getTicker(id: string) {
+    public getTicker(id: string): Observable<CoinMarketCapCoin> {
       var url = this.baseUrl + '/ticker/' + id + '/';
       return this.genericHttpService.getOne<CoinMarketCapCoin>(url, CoinMarketCapCoin);
     }
 
     // These Coins are minable for Customers
-    public getBitcoin() {
+    public getBitcoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1");
     }
 
-    public getEthereum() {
+    public getEthereum(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1027");
     }
 
-    public getLitecoin() {
+    public getLitecoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("2");
     }
 
-    public getEthereumClassic() {
+    public getEthereumClassic(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1321");
     }
 
-    public getMonero() {
+    public getMonero(): Observable<CoinMarketCapCoin> {
       return this.getTicker("328");
     }
 
-    public getDash() {
+    public getDash(): Observable<CoinMarketCapCoin> {
       return this.getTicker("131");
     }
 
-    public getVerge() {
+    public getVerge(): Observable<CoinMarketCapCoin> {
       return this.getTicker("693");
     }
 
-    public getDogecoin() {
+    public getDogecoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("74");
     }
 
-    public getZCash() {
+    public getZCash(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1473");
     }
 
-    public getDigibyte() {
+    public getDigibyte(): Observable<CoinMarketCapCoin> {
       return this.getTicker("109");
     }
 
     // These Coins are not minable in the current version
-    public getBytecoin() {
+    public getBytecoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("372");
     }
 
-    public getDecred() {
+    public getDecred(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1168");
     }
 
-    public getBitcoingold() {
+    public getBitcoingold(): Observable<CoinMarketCapCoin> {
       return this.getTicker("2083");
     }
 
-    public getSiacoin() {
+    public getSiacoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1042");
     }
 
-    public getKomodo() {
+    public getKomodo(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1521");
     }
 
-    public getZcoin() {
+    public getZcoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1414");
     }
 
