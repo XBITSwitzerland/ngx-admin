@@ -33,11 +33,20 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Address>(url, Address);
     }
     // Post Address
-
+    public postAddress(body: any) {
+        var url = this.baseUrl + '/address/';
+        return this.genericHttpService.post(url, body);
+    }
     // Put Address
-
+    public putAddress(body: any) {
+        var url = this.baseUrl + '/address/';
+        return this.genericHttpService.put(url, body);
+    }
     // Delete Address
-
+    public deleteAddress(id: string) {
+        var url = this.baseUrl + '/address/' + id + '/';
+        return this.genericHttpService.delete(url);
+    }
     /********* Administrator *********/
     // Get Administrators
     public getAdministrators() {
@@ -50,16 +59,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Administrator>(url, Administrator);
     }
     // Post Administrator
-    public PostAdministrator() {
-
+    public PostAdministrator(body: any) {
+        var url = this.baseUrl + '/administrator';
+        return this.genericHttpService.post(url, body);
     }
     // Put Administrator
-    public PutAdministrator() {
-        
+    public PutAdministrator(body: any) {
+        var url = this.baseUrl + '/administrator';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Administrator
-    public DeleteAdministrator() {
-        
+    public DeleteAdministrator(id: string) {
+        var url = this.baseUrl + '/administrator/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* Algorithm *********/
     // Get Algorithms
@@ -73,16 +85,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Algorithm>(url, Algorithm);
     }
     // Post Algorithm
-    public PostAlgorithm () {
-        
+    public PostAlgorithm(body: any) {
+        var url = this.baseUrl + '/algorithm';
+        return this.genericHttpService.post(url, body);
     }
     // Put Algorithm
-    public PutAlgorithm () {
-        
+    public PutAlgorithm(body: any) {
+        var url = this.baseUrl + '/algorithm';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Algorithm
-    public DeleteAlgorithm () {
-        
+    public DeleteAlgorithm(id: string) {
+        var url = this.baseUrl + '/algorithm/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
 
     /********* Balance *********/
@@ -97,16 +112,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Balance>(url, Balance);
     }
     // Post Balance
-    public PostBalance () {
-        
+    public PostBalance(body: any) {
+        var url = this.baseUrl + '/balances';
+        return this.genericHttpService.post(url, body);
     }
     // Put Balance
-    public PutBalance () {
-        
+    public PutBalance(body: any) {
+        var url = this.baseUrl + '/balances';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Balance
-    public DeleteBalance () {
-        
+    public DeleteBalance(id: string) {
+        var url = this.baseUrl + '/balance/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
 
     /********* XBitCoin *********/
@@ -121,16 +139,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<XBitCoin>(url, XBitCoin);
     }
     // Post XBitCoin
-    public PostXBitCoin () {
-        
+    public PostXBitCoin(body: any) {
+        var url = this.baseUrl + '/coin';
+        return this.genericHttpService.post(url, body);
     }
     // Put XBitCoin
-    public PutXBitCoin () {
-        
+    public PutXBitCoin(body: any) {
+        var url = this.baseUrl + '/coin';
+        return this.genericHttpService.put(url, body);
     }
     // Delete XBitCoin
-    public DeleteXBitCoin () {
-        
+    public DeleteXBitCoin (id: string) {
+        var url = this.baseUrl + '/coin/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
 
     /********* Country *********/
@@ -145,16 +166,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Country>(url, Country);
     }
     // Post Country
-    public PostCountry () {
-        
+    public PostCountry(body: any) {
+        var url = this.baseUrl + '/country';
+        return this.genericHttpService.post(url, body);
     }
     // Put Country
-    public PutCountry () {
-        
+    public PutCountry(body: any) {
+        var url = this.baseUrl + '/country';
+        return this.genericHttpService.post(url, body);
     }
     // Delete Country
-    public DeleteCountry () {
-        
+    public DeleteCountry(id: string) {
+        var url = this.baseUrl + '/country/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
 
     /********* Customer *********/
@@ -169,16 +193,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Customer>(url, Customer);
     }
     // Post Customer
-    public PostCustomer () {
-        
+    public PostCustomer(body: any) {
+        var url = this.baseUrl + '/customer';
+        return this.genericHttpService.post(url, body);
     }
     // Put Customer
-    public PutCustomer () {
-        
+    public PutCustomer(body: any) {
+        var url = this.baseUrl + '/customer';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Customer
-    public DeleteCustomer () {
-        
+    public DeleteCustomer(id: string) {
+        var url = this.baseUrl + '/customer/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* HostingPeriod *********/
     // Get HostingPeriods
@@ -192,16 +219,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<HostingPeriod>(url, HostingPeriod);
     }
     // Post HostingPeriod
-    public PostHostingPeriod () {
-        
+    public PostHostingPeriod(body: any) {
+        var url = this.baseUrl + '/hostingperiod';
+        return this.genericHttpService.post(url, body);
     }
     // Put HostingPeriod
-    public PutHostingPeriod () {
-        
+    public PutHostingPeriod(body: any) {
+        var url = this.baseUrl + '/hostingperiod';
+        return this.genericHttpService.put(url, body);
     }
     // Delete HostingPeriod
-    public DeleteHostingPeriod () {
-        
+    public DeleteHostingPeriod(id: string) {
+        var url = this.baseUrl + '/hostingperiod/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* Location *********/
     // Get Locations
@@ -215,16 +245,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Location>(url, Location);
     }
     // Post Location
-    public PostLocation () {
-        
+    public PostLocation(body: any) {
+        var url = this.baseUrl + '/location';
+        return this.genericHttpService.post(url, body);
     }
     // Put Location
-    public PutLocation () {
-        
+    public PutLocation(body: any) {
+        var url = this.baseUrl + '/location';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Location
-    public DeleteLocation () {
-        
+    public DeleteLocation(id: string) {
+        var url = this.baseUrl + '/location/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* Manufacturer *********/
     // Get Manufacturers
@@ -238,16 +271,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Manufacturer>(url, Manufacturer);
     }
     // Post Manufacturer
-    public PostManufacturer () {
-        
+    public PostManufacturer(body: any) {
+        var url = this.baseUrl + '/manufacturer';
+        return this.genericHttpService.post(url, body);
     }
     // Put Manufacturer
-    public PutManufacturer () {
-        
+    public PutManufacturer(body: any) {
+        var url = this.baseUrl + '/manufacturer';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Manufacturer
-    public DeleteManufacturer () {
-        
+    public DeleteManufacturer(id: string) {
+        var url = this.baseUrl + '/manufacturer/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* Miner *********/
     // Get Miners
@@ -261,16 +297,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<Miner>(url, Miner);
     }
     // Post Miner
-    public PostMiner () {
-        
+    public PostMiner(body: any) {
+        var url = this.baseUrl + '/miner';
+        return this.genericHttpService.post(url, body);
     }
     // Put Miner
-    public PutMiner () {
-        
+    public PutMiner(body: any) {
+        var url = this.baseUrl + '/miner';
+        return this.genericHttpService.put(url, body);
     }
     // Delete Miner
-    public DeleteMiner () {
-        
+    public DeleteMiner(id: string) {
+        var url = this.baseUrl + '/miner/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* MinerType *********/
     // Get MinerTypes
@@ -284,16 +323,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<MinerType>(url, MinerType);
     }
     // Post MinerType
-    public PostMinerType () {
-        
+    public PostMinerType(body: any) {
+        var url = this.baseUrl + '/minertype';
+        return this.genericHttpService.post(url, body);
     }
     // Put MinerType
-    public PutMinerType () {
-        
+    public PutMinerType(body: any) {
+        var url = this.baseUrl + '/minertype';
+        return this.genericHttpService.put(url, body);
     }
     // Delete MinerType
-    public DeleteMinerType () {
-        
+    public DeleteMinerType(id: string) {
+        var url = this.baseUrl + '/minertype/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* MiningFarm *********/
     // Get MiningFarms
@@ -307,16 +349,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<MiningFarm>(url, MiningFarm);
     }
     // Post MiningFarm
-    public PostMiningFarm () {
-        
+    public PostMiningFarm(body: any) {
+        var url = this.baseUrl + '/miningfarm';
+        return this.genericHttpService.post(url, body);
     }
     // Put MiningFarm
-    public PutMiningFarm () {
-        
+    public PutMiningFarm(body: any) {
+        var url = this.baseUrl + '/miningfarm';
+        return this.genericHttpService.put(url, body);
     }
     // Delete MiningFarm
-    public DeleteMiningFarm () {
-        
+    public DeleteMiningFarm(id: string) {
+        var url = this.baseUrl + '/miningfarm/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
     /********* UserInformation *********/
     // Get UserInformations
@@ -330,18 +375,19 @@ export class XBitApiService {
         return this.genericHttpService.getOne<UserInformation>(url, UserInformation);
     }
     // Post UserInformation
-    public PostUserInformation (body: any) {
+    public PostUserInformation(body: any) {
         var url = this.baseUrl + '/userinformation';
         return this.genericHttpService.post(url, body);
     }
     // Put UserInformation
-    public PutUserInformation (body: any) {
+    public PutUserInformation(body: any) {
         var url = this.baseUrl + '/userinformation';
         return this.genericHttpService.post(url, body);
     }
     // Delete UserInformation
-    public DeleteUserInformation (id: string) {
-        
+    public DeleteUserInformation(id: string) {
+        var url = this.baseUrl + '/userinformation/' + id + '/';
+        return this.genericHttpService.delete(url);
     }
 
   constructor(private genericHttpService: GenericHttpService) { }

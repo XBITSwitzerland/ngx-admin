@@ -63,8 +63,12 @@ export class GenericHttpService {
       });
   }
 
-  delete(url: string){
-    
+  delete(url: string): Observable<any>{
+    return this.http.delete(url)
+      .catch(error => {
+        this.errorHandlerService.handleError(error);
+        return Observable.empty<any>();
+      });
   }
   
 
