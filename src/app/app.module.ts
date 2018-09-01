@@ -16,6 +16,11 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+import { ErrorHandlerService } from './services/errorhandler/error-handler.service';
+import { GenericHttpService } from './services/generichttp/generic-http.service';
+import { CoinmarketcapService } from './services/coinmarketcap/coinmarketcap.service';
+import { ErrorMessageService } from './services/errormessage/error-message.service';
+import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 
 
 // Application wide providers
@@ -41,16 +46,22 @@ export type StoreType = {
   imports: [ // import Angular's modules
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
-    routing
+    routing,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    ErrorHandlerService,
+    ErrorMessageService,
+    GenericHttpService,
+    CoinmarketcapService,
+    HttpClient,
   ]
 })
 
