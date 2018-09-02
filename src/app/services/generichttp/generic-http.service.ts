@@ -46,28 +46,27 @@ export class GenericHttpService {
       });
   }
 
-  // TODO Kevin: Create functions for Post, Put and Delete Calls
-  post(url: string, body: any): Observable<any> {
-    return this.http.post(url, body)
+  post<T>(url: string, body: T): void {
+    this.http.post(url, body)
       .catch(error => {
         this.errorHandlerService.handleError(error);
-        return Observable.empty<any>();
+        return Observable.empty();
       });
   }
 
-  put(url: string, body: any): Observable<any> {
-    return this.http.put(url, body)
+  put<T>(url: string, body: T): void {
+    this.http.put(url, body)
       .catch(error => {
         this.errorHandlerService.handleError(error);
-        return Observable.empty<any>();
+        return Observable.empty();
       });
   }
 
-  delete(url: string): Observable<any>{
-    return this.http.delete(url)
+  delete(url: string): void{
+    this.http.delete(url)
       .catch(error => {
         this.errorHandlerService.handleError(error);
-        return Observable.empty<any>();
+        return Observable.empty();
       });
   }
   
@@ -75,8 +74,7 @@ export class GenericHttpService {
   constructor(
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService
-  ) { 
-  }
+  ) { }
 
 }
 
