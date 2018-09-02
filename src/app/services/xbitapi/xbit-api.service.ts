@@ -91,7 +91,7 @@ export class XBitApiService {
         var url = this.baseUrl + '/algorithm';
         this.genericHttpService.put<Algorithm>(url, body);
     }
-W
+    
     deleteAlgorithm(id: string): void {
         var url = this.baseUrl + '/algorithm/' + id + '/';
         this.genericHttpService.delete(url);
