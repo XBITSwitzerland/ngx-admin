@@ -7,78 +7,78 @@ import { CoinMarketCapCoin } from '../../entities/coinmarketcap-coin';
 
 @Injectable()
 
-export class CoinmarketcapService {
+export class CoinMarketCapService {
 
     baseUrl = "https://api.coinmarketcap.com/v2/"
 
-    public getTicker(id: string): Observable<CoinMarketCapCoin> {
+    private getTicker(id: string): Observable<CoinMarketCapCoin> {
       var url = this.baseUrl + '/ticker/' + id + '/';
       return this.genericHttpService.getOne<CoinMarketCapCoin>(url, CoinMarketCapCoin);
     }
 
     // These Coins are minable for Customers
-    public getBitcoin(): Observable<CoinMarketCapCoin> {
+    getBitcoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1");
     }
 
-    public getEthereum(): Observable<CoinMarketCapCoin> {
+    getEthereum(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1027");
     }
 
-    public getLitecoin(): Observable<CoinMarketCapCoin> {
+    getLitecoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("2");
     }
 
-    public getEthereumClassic(): Observable<CoinMarketCapCoin> {
+    getEthereumClassic(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1321");
     }
 
-    public getMonero(): Observable<CoinMarketCapCoin> {
+    getMonero(): Observable<CoinMarketCapCoin> {
       return this.getTicker("328");
     }
 
-    public getDash(): Observable<CoinMarketCapCoin> {
+    getDash(): Observable<CoinMarketCapCoin> {
       return this.getTicker("131");
     }
 
-    public getVerge(): Observable<CoinMarketCapCoin> {
+    getVerge(): Observable<CoinMarketCapCoin> {
       return this.getTicker("693");
     }
 
-    public getDogecoin(): Observable<CoinMarketCapCoin> {
+    getDogecoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("74");
     }
 
-    public getZCash(): Observable<CoinMarketCapCoin> {
+    getZCash(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1473");
     }
 
-    public getDigibyte(): Observable<CoinMarketCapCoin> {
+    getDigibyte(): Observable<CoinMarketCapCoin> {
       return this.getTicker("109");
     }
 
     // These Coins are not minable in the current version
-    public getBytecoin(): Observable<CoinMarketCapCoin> {
+    getBytecoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("372");
     }
 
-    public getDecred(): Observable<CoinMarketCapCoin> {
+    getDecred(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1168");
     }
 
-    public getBitcoingold(): Observable<CoinMarketCapCoin> {
+    getBitcoingold(): Observable<CoinMarketCapCoin> {
       return this.getTicker("2083");
     }
 
-    public getSiacoin(): Observable<CoinMarketCapCoin> {
+    getSiacoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1042");
     }
 
-    public getKomodo(): Observable<CoinMarketCapCoin> {
+    getKomodo(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1521");
     }
 
-    public getZcoin(): Observable<CoinMarketCapCoin> {
+    getZcoin(): Observable<CoinMarketCapCoin> {
       return this.getTicker("1414");
     }
 
