@@ -21,6 +21,7 @@ import { GenericHttpService } from './services/generichttp/generic-http.service'
 import { CoinmarketcapService } from './services/coinmarketcap/coinmarketcap.service';
 import { ErrorMessageService } from './services/errormessage/error-message.service';
 import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { DataService } from './services/data/data.service';
 
 
 // Application wide providers
@@ -62,6 +63,7 @@ export type StoreType = {
     GenericHttpService,
     CoinmarketcapService,
     HttpClient,
+    DataService,
   ]
 })
 
