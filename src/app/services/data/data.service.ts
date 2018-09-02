@@ -118,7 +118,7 @@ export class DataService {
 
   update<T>(propertyName: string): void {
     var observable: Observable<T[]>;
-    if (propertyName.toLowerCase().indexOf('coin') <= -1 && propertyName.toLocaleLowerCase() !== 'xbitcoin') {
+    if (propertyName.toLowerCase().indexOf('coin') > -1 && propertyName.toLocaleLowerCase() !== 'xbitcoin') {
       // use coinmarketcapService
       observable = this.coinMarketCapService['get' + propertyName]();
     } else {
