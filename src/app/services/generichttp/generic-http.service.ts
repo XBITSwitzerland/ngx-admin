@@ -46,11 +46,35 @@ export class GenericHttpService {
       });
   }
 
+  post<T>(url: string, body: T): void {
+    this.http.post(url, body)
+      .catch(error => {
+        this.errorHandlerService.handleError(error);
+        return Observable.empty();
+      });
+  }
+
+  put<T>(url: string, body: T): void {
+    this.http.put(url, body)
+      .catch(error => {
+        this.errorHandlerService.handleError(error);
+        return Observable.empty();
+      });
+  }
+
+  delete(url: string): void{
+    this.http.delete(url)
+      .catch(error => {
+        this.errorHandlerService.handleError(error);
+        return Observable.empty();
+      });
+  }
+  
+
   constructor(
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService
-  ) { 
-  }
+  ) { }
 
 }
 
