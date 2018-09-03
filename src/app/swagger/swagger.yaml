@@ -1,0 +1,1488 @@
+swagger: "2.0"
+info:
+  description: "This is the API for https://monitor.x-bit.ch"
+  version: "1.0.0"
+  title: "Swagger XBit API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "digex.schweiz@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "monitor.x-bit.ch"
+basePath: "/api"
+tags:
+- name: "address"
+  description: "address of users"
+schemes:
+- "https"
+paths:
+  /address:
+    post:
+      tags:
+      - "address"
+      summary: "create address"
+      description: "gets a single address"
+      operationId: "postAddress"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "address"
+      summary: "update address"
+      description: "updates a address"
+      operationId: "putAddress"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /address/{id}:
+    get:
+      tags:
+      - "address"
+      summary: "get address by id"
+      description: "gets a single address"
+      operationId: "getAddressById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "Id of address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "address"
+      summary: "delete address by id"
+      description: "gets a single address"
+      operationId: "deleteAddressById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "Id of address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /administrator:
+    get:
+      tags:
+      - "administrator"
+      summary: "get all administrators"
+      description: "get all administrators"
+      operationId: "getAdministrators"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "administrator"
+      summary: "create administrator"
+      description: "create administrator"
+      operationId: "postAdministratorById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "administrator"
+      summary: "update administrator"
+      description: "get all administrators"
+      operationId: "putAdministratorById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /administrator/{id}:
+    get:
+      tags:
+      - "administrator"
+      summary: "get admininistrator by id"
+      description: "gets a single administrator"
+      operationId: "administratorById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of administrator to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "administrator"
+      summary: "delete administrator by id"
+      description: "delete a single administrator"
+      operationId: "deleteAdministratorById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of administrator to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /algorithm:
+    get:
+      tags:
+      - "algorithm"
+      summary: "get all algorithms"
+      description: "get all algorithms"
+      operationId: "getAlgorithms"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "algorithm"
+      summary: "create algorithm"
+      description: "create algorithm"
+      operationId: "postAlgorithm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "algorithm"
+      summary: "update algorithm"
+      description: "update algorithm"
+      operationId: "putAlgorithm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /algorithm/{id}:
+    get:
+      tags:
+      - "algorithm"
+      summary: "get algorithm by id"
+      description: "get algorithm by id"
+      operationId: "getAlgorithmById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of algorithm to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "algorithm"
+      summary: "delete algorithm by id"
+      description: "delete algorithm by id"
+      operationId: "deleteAlgorthmById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of algorithm to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /balance:
+    get:
+      tags:
+      - "balance"
+      summary: "get all balances"
+      description: "get all balances"
+      operationId: "getBalances"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "balance"
+      summary: "post balance"
+      description: "post balance"
+      operationId: "postBalance"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "balance"
+      summary: "update balance"
+      description: "get all Administrators"
+      operationId: "putBalanceById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /balance/{id}:
+    get:
+      tags:
+      - "balance"
+      summary: "get balance by id"
+      description: "get balance by id"
+      operationId: "getBalanceById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of balance to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "balance"
+      summary: "delete balance by id"
+      description: "delete balance by id"
+      operationId: "deleteBalanceById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of balance to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /coinalgorithm:
+    get:
+      tags:
+      - "coinalgorithm"
+      summary: "get all coinalgorithms"
+      description: "get all coinalgorithms"
+      operationId: "getcoinalgorithms"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "coinalgorithm"
+      summary: "create coinalgorithm"
+      description: "create coinalgorithm"
+      operationId: "postcoinalgorithm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "coinalgorithm"
+      summary: "update coinalgorithm"
+      description: "coinalgorithm coinalgorithm"
+      operationId: "putcoinalgorithm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /coinalgorithm/{id}:
+    get:
+      tags:
+      - "coinalgorithm"
+      summary: "get coinalgorithm by id"
+      description: "get coinalgorithm by id"
+      operationId: "getCoinalgorithmById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of coinalgorithm to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "coinalgorithm"
+      summary: "delete coinalgorithm by id"
+      description: "delete coinalgorithm by id"
+      operationId: "deleteCoinalgorithmById"
+      parameters:
+      - name: "id"
+        type: "string"
+        in: "path"
+        description: "id of coinalgorithm to delete"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /coin:
+    get:
+      tags:
+      - "coin"
+      summary: "get all coins"
+      description: "get all coins"
+      operationId: "getcoins"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "coin"
+      summary: "create coin"
+      description: "create coin"
+      operationId: "postCoin"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "coin"
+      summary: "update coin"
+      description: "update coin"
+      operationId: "putCoin"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /coin/{id}:
+    get:
+      tags:
+      - "coin"
+      summary: "get coin by id"
+      description: "get coin by id"
+      operationId: "getcoinById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of coin to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "coin"
+      summary: "delete coin by id"
+      description: "delete coin by id"
+      operationId: "deletecoinById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of coin to delete"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /country:
+    get:
+      tags:
+      - "country"
+      summary: "get all countries"
+      description: "get all countries"
+      operationId: "getcountry"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "country"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postcountry"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "country"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putcountryById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /country/{id}:
+    get:
+      tags:
+      - "country"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getcountryById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "country"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletecountryById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  
+  /customer:
+    get:
+      tags:
+      - "customer"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getcustomer"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "customer"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postcustomer"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "customer"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putcustomerById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /customer/{id}:
+    get:
+      tags:
+      - "customer"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getcustomerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "customer"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletecustomerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  
+  /farmmember:
+    get:
+      tags:
+      - "farmmember"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getfarmmember"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "farmmember"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postfarmmember"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "farmmember"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putfarmmemberById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /farmmember/{id}:
+    get:
+      tags:
+      - "farmmember"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getfarmmemberById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "farmmember"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletefarmmemberById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  
+  /farmright:
+    get:
+      tags:
+      - "farmright"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getfarmright"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "farmright"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postfarmright"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "farmright"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putfarmrightById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /farmright/{id}:
+    get:
+      tags:
+      - "farmright"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getfarmrightById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "farmright"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletefarmrightById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /hostingperiod:
+    get:
+      tags:
+      - "hostingperiod"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "gethostingperiod"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "hostingperiod"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "posthostingperiod"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "hostingperiod"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "puthostingperiodById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /hostingperiod/{id}:
+    get:
+      tags:
+      - "hostingperiod"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "gethostingperiodById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "hostingperiod"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletehostingperiodById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /locationadministrator:
+    get:
+      tags:
+      - "locationadministrator"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getlocationadministrator"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "locationadministrator"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postlocationadministrator"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "locationadministrator"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putlocationadministratorById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /locationadministrator/{id}:
+    get:
+      tags:
+      - "locationadministrator"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getlocationadministratorById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "locationadministrator"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletelocationadministratorById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /location:
+    get:
+      tags:
+      - "location"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getlocation"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "location"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postlocation"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "location"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putlocationById"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /location/{id}:
+    get:
+      tags:
+      - "location"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getlocationById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "location"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletelocationById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /manufacturer:
+    get:
+      tags:
+      - "manufacturer"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getmanufacturer"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "manufacturer"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postmanufacturer"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "manufacturer"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putmanufacturerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /manufacturer/{id}:
+    get:
+      tags:
+      - "manufacturer"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getmanufacturerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "manufacturer"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletemanufacturerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /mineralgorithm:
+    get:
+      tags:
+      - "mineralgorithm"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getmineralgorithm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "mineralgorithm"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postmineralgorithm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "mineralgorithm"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putmineralgorithmById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /mineralgorithm/{id}:
+    get:
+      tags:
+      - "mineralgorithm"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getmineralgorithmById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "mineralgorithm"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deletemineralgorithmById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /miner:
+    get:
+      tags:
+      - "miner"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getminer"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "miner"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postminer"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "miner"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putminerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /miner/{id}:
+    get:
+      tags:
+      - "miner"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getminerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "miner"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deleteminerById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  
+  /minertype:
+    get:
+      tags:
+      - "minertype"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getminertype"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "minertype"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postminertype"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "minertype"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putminertypeById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /minertype/{id}:
+    get:
+      tags:
+      - "minertype"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getminertypeById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "minertype"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deleteminertypeById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+  /miningfarm:
+    get:
+      tags:
+      - "miningfarm"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getminingfarm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "miningfarm"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postminingfarm"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "miningfarm"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putminingfarmById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /miningfarm/{id}:
+    get:
+      tags:
+      - "miningfarm"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getminingfarmById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "miningfarm"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deleteminingfarmById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+          
+  /shelf:
+    get:
+      tags:
+      - "shelf"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getshelfs"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "shelf"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postshelf"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "shelf"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putshelfById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /shelf/{id}:
+    get:
+      tags:
+      - "shelf"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getshelfById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "shelf"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deleteshelfById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+          
+          
+  /userinformation:
+    get:
+      tags:
+      - "userinformation"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "getuserinformation"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    post:
+      tags:
+      - "userinformation"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "postuserinformation"
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    put:
+      tags:
+      - "userinformation"
+      summary: "get all Administrators"
+      description: "get all Administrators"
+      operationId: "putuserinformationById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  /userinformation/{id}:
+    get:
+      tags:
+      - "userinformation"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "getuserinformationById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+    delete:
+      tags:
+      - "userinformation"
+      summary: "get Admin by id"
+      description: "gets a single Admini"
+      operationId: "deleteuserinformationById"
+      parameters:
+      - name: "Id"
+        type: "string"
+        in: "path"
+        description: "id of Address to get"
+        required: true
+      responses:
+        200:
+          description: "success"
+        404:
+          description: "error"
+  
+  
+  
+          
+          
+    
+
+definitions:
+  Address:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"

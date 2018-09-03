@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CoinmarketcapService } from '../../services/coinmarketcap/coinmarketcap.service';
+import { CoinmarketCapService } from '../../services/coinmarketcap/coinmarketcap.service';
 
 @Component({
   selector: 'dashboard',
@@ -8,7 +8,7 @@ import { CoinmarketcapService } from '../../services/coinmarketcap/coinmarketcap
 })
 export class Dashboard {
 
-  constructor(private service: CoinmarketcapService) {
+  constructor(private service: CoinmarketCapService) {
   service.getBitcoin().subscribe((res) => {
     console.log(res);
   });

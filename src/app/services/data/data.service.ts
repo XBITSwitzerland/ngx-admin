@@ -68,6 +68,8 @@ export class DataService {
   private userInformationsSource = new BehaviorSubject<UserInformation[]>([]);
   userInformations = this.userInformationsSource.asObservable();
 
+  /* Coinmarketcap Coins */ 
+
   private bitcoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
   bitcoin = this.bitcoinSource.asObservable();
 
@@ -116,6 +118,8 @@ export class DataService {
   private zcoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
   zcoin = this.zcoinSource.asObservable();
 
+  private CoinsArray: CoinMarketCapCoin[] = [];
+
   update<T>(propertyName: string): void {
     var observable: Observable<T[]>;
     if (propertyName.toLowerCase().indexOf('coin') > -1 && propertyName.toLocaleLowerCase() !== 'xbitcoin') {
@@ -133,6 +137,7 @@ export class DataService {
   constructor(
     private coinMarketCapService: CoinMarketCapService,
     private xbitApiService: XBitApiService
-  ) { }
-
+  ) {
+    
+   }
 }
