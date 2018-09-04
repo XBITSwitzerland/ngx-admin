@@ -30,6 +30,7 @@ import { HashrateChartService } from './hashrateChart/hashrateChart.service';
 import { CoinMarketCapService } from '../../services/coinmarketcap/coinmarketcap.service';
 
 import { GenericHttpService } from '../../services/generichttp/generic-http.service';
+import { XBitApiService } from '../../services/xbitapi/xbit-api.service';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { GenericHttpService } from '../../services/generichttp/generic-http.serv
     CoinTableService,
     HashrateChartService,
     CoinMarketCapService,
-    GenericHttpService
+    GenericHttpService,
+    XBitApiService
   ]
 })
 export class DashboardModule {}

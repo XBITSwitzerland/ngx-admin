@@ -22,6 +22,7 @@ import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.ser
 import { ErrorMessageService } from './services/errormessage/error-message.service';
 import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
+import { XBitApiService } from './services/xbitapi/xbit-api.service';
 
 
 // Application wide providers
@@ -64,6 +65,7 @@ export type StoreType = {
     CoinMarketCapService,
     HttpClient,
     DataService,
+    XBitApiService
   ]
 })
 

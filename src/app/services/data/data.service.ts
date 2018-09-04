@@ -94,7 +94,7 @@ export class DataService {
   private dogecoinSource  = new BehaviorSubject<CoinMarketCapCoin[]>([]);
   dogecoin = this.dogecoinSource.asObservable();
 
-  private zCashSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
+  private zCashSource = new BehaviorSubject<CoinMarketCapCoin>(new CoinMarketCapCoin());
   zCash = this.zCashSource.asObservable();
 
   private digiByteSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
@@ -118,7 +118,7 @@ export class DataService {
   private zcoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
   zcoin = this.zcoinSource.asObservable();
 
-  private CoinsArray: CoinMarketCapCoin[] = [];
+  private CoinsArray: any[] = [];
 
   update<T>(propertyName: string): void {
     var observable: Observable<T[]>;
