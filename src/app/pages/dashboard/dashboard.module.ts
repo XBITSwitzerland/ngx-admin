@@ -27,7 +27,7 @@ import { CoinTableService } from './coinTable/coinTable.service';
 import { HashrateChart } from './hashrateChart/hashrateChart.component';
 import { HashrateChartService } from './hashrateChart/hashrateChart.service';
 
-import { CoinmarketcapService } from '../../services/coinmarketcap/coinmarketcap.service';
+import { CoinMarketCapService } from '../../services/coinmarketcap/coinmarketcap.service';
 
 import { GenericHttpService } from '../../services/generichttp/generic-http.service';
 
@@ -62,7 +62,7 @@ import { GenericHttpService } from '../../services/generichttp/generic-http.serv
     UsersMapService,
     CoinTableService,
     HashrateChartService,
-    CoinmarketcapService,
+    CoinMarketCapService,
     GenericHttpService
   ]
 })
