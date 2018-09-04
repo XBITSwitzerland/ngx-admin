@@ -14,7 +14,6 @@ export class CoinMarketCapCoin implements IData {
     public metadata: any; // create new entity user to replace any type
 
     constructor(data?: any) {
-        console.log('data=', data);
         this.id = data.data.id;
         this.name = data.data.name;
         this.symbol = data.data.symbol;
