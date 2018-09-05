@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 
 import {MinersTableService} from './minersTable.service';
+import {DataService} from '../../../services/data/data.service';
+import { Miner } from '../../../entities/XBitApi/miner';
+import { MinerType } from '../../../entities/XBitApi/minertype';
 
 @Component({
   selector: 'miners-table',
@@ -10,7 +13,13 @@ import {MinersTableService} from './minersTable.service';
 export class MinersTable {
   minersTableData:Array<any>;
 
-  constructor(private _minersTableService: MinersTableService) {
+  miners: Miner[];
+  minerTypes: MinerType[];
+
+
+  constructor(private dataService: DataService, private _minersTableService: MinersTableService) {
     this.minersTableData = _minersTableService.minersTableData;
+
+
   }
 }
