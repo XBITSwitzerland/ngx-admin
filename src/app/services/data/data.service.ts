@@ -27,9 +27,6 @@ import 'rxjs/add/observable/forkJoin';
 @Injectable()
 export class DataService {
 
-  private coinmarketcapcoinsSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  coinmarketcapcoins = this.coinmarketcapcoinsSource.asObservable();
-
   private addressesSource = new BehaviorSubject<Address[]>([]);
   adresses = this.addressesSource.asObservable();
 
@@ -111,5 +108,7 @@ export class DataService {
   constructor(
     private coinMarketCapService: CoinMarketCapService,
     private xbitApiService: XBitApiService
-  ) { }
+  ) {
+    this.update(DataType.CoinMarketCap, "");
+   }
 }
