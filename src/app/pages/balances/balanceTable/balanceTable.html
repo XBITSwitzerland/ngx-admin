@@ -6,7 +6,9 @@
       <th class="align-right">Name</th>
       <th class="align-right">Symbol</th>
       <th class="align-right">Price</th>
-      <th class="align-right">Change</th>
+      <th class="align-right">Change 24h</th>
+      <th class="table-arr"></th>
+      <th class="align-right">Change 1h</th>
       <th class="table-arr"></th>
       <th class="align-right">Balance</th>
       <!--<th class="align-right">WalletAddress</th>-->
@@ -21,6 +23,8 @@
       <td class="align-right balance-table-data">{{item.quotes.USD.price | number}} $</td>
       <td class="align-right balance-table-data" [ngClass]="{'price-up-text': item.quotes.USD.percent_change_24h >= 0, 'price-down-text': item.quotes.USD.percent_change_24h < 0 }">{{item.quotes.USD.percent_change_24h}} %</td>
       <td class="table-arr balance-table-data"><i [ngClass]="{'icon-up': item.quotes.USD.percent_change_24h >= 0, 'icon-down': item.quotes.USD.percent_change_24h < 0 }"></i></td>
+      <td class="align-right balance-table-data" [ngClass]="{'price-up-text': item.quotes.USD.percent_change_1h >= 0, 'price-down-text': item.quotes.USD.percent_change_1h < 0 }">{{item.quotes.USD.percent_change_1h}} %</td>
+      <td class="table-arr balance-table-data"><i [ngClass]="{'icon-up': item.quotes.USD.percent_change_1h >= 0, 'icon-down': item.quotes.USD.percent_change_1h < 0 }"></i></td>
       <td class="align-right balance-table-data">100 {{item.symbol}}</td>
       <!--<td class="align-right balance-table-data"><input class="form-control wallet-address-input" type="text" ></td>-->
       <td class="align-right balance-table-data"><button class="btn btn-primary">Withdraw</button></td>
