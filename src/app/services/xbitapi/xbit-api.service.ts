@@ -18,6 +18,7 @@ import { Miner } from '../../entities/XBitApi/miner';
 import { MinerType } from '../../entities/XBitApi/minertype';
 import { MiningFarm } from '../../entities/XBitApi/miningfarm';
 import { UserInformation } from '../../entities/XBitApi/userinformation';
+import { MinerAlgorithm } from '../../entities/XBitApi/mineralgorithm';
 
 @Injectable()
 
@@ -350,6 +351,31 @@ export class XBitApiService {
         var url = this.baseUrl + '/miningfarm/' + id + '/';
         this.genericHttpService.delete(url);
     }
+    /********* MinerAlgorithm *********/
+    getMinerAlgorithms(): Observable<MinerAlgorithm[]> {
+        var url = this.baseUrl + '/mineralgorithm/';
+        return this.genericHttpService.getMany<MinerAlgorithm>(url, MinerAlgorithm);
+    }
+
+    getMinerAlgorithm(id: string): Observable<MinerAlgorithm> {
+        var url = this.baseUrl + '/mineralgorithm/' + id + '/';
+        return this.genericHttpService.getOne<MinerAlgorithm>(url, MinerAlgorithm);
+    }
+
+    postMinerAlgorithm(body: MinerAlgorithm): void {
+        var url = this.baseUrl + '/mineralgorithm';
+        this.genericHttpService.post<MinerAlgorithm>(url, body);
+    }
+    
+    putMinerAlgorithm(body: MinerAlgorithm): void {
+        var url = this.baseUrl + '/mineralgorithm';
+        this.genericHttpService.post<MinerAlgorithm>(url, body);
+    }
+
+    deleteMinerAlgorithm(id: string): void {
+        var url = this.baseUrl + '/mineralgorithm/' + id + '/';
+        this.genericHttpService.delete(url);
+    }
     /********* UserInformation *********/
     getUserInformations(): Observable<UserInformation[]> {
         var url = this.baseUrl + '/userinformation/';
@@ -365,7 +391,6 @@ export class XBitApiService {
         var url = this.baseUrl + '/userinformation';
         this.genericHttpService.post<UserInformation>(url, body);
     }
-
     
     putUserInformation(body: UserInformation): void {
         var url = this.baseUrl + '/userinformation';
