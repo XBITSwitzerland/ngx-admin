@@ -23,6 +23,7 @@ import { MiningFarm } from '../../entities/XBitApi/miningfarm';
 import { UserInformation } from '../../entities/XBitApi/userinformation';
 
 import 'rxjs/add/observable/forkJoin';
+import { MinerAlgorithm } from '../../entities/XBitApi/mineralgorithm';
 
 @Injectable()
 export class DataService {
@@ -72,6 +73,9 @@ export class DataService {
   /* Coinmarketcap Coins */ 
   private coinMarketCapCoinsSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
   coinMarketCapCoins = this.coinMarketCapCoinsSource.asObservable();
+
+  private minerAlgorithmSource = new BehaviorSubject<MinerAlgorithm[]>([]);
+  minerAlgorithm = this.minerAlgorithmSource.asObservable();
 
   update<T>(dataType: DataType, controllerName: string): void {
     switch (dataType) {
