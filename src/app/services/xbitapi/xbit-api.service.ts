@@ -24,12 +24,16 @@ import { MinerAlgorithm } from '../../entities/XBitApi/mineralgorithm';
 
 export class XBitApiService {
 
-    baseUrl = "localhost:9999/api"
+    baseUrl = "http://localhost:52706/api";
 
     /********* Address *********/
-    getAddress(id: string): Observable<Address> {
-        var url = this.baseUrl + '/address/' + id + '/';
-        return this.genericHttpService.getOne<Address>(url, Address);
+    getAddress(id: string, scope?: any): Observable<Address> {
+        var vm = this;
+        if (scope) {
+            vm = scope
+        }
+        var url = vm.baseUrl + '/address/' + id + '/';
+        return vm.genericHttpService.getOne<Address>(url, Address);
     }
 
     postAddress(body: Address): void {
@@ -73,12 +77,17 @@ export class XBitApiService {
         this.genericHttpService.delete(url);
     }
     /********* Algorithm *********/
-    getAlgorithms(): Observable<Algorithm[]> {
-        var url = this.baseUrl + '/algorithm';
-        return this.genericHttpService.getMany<Algorithm>(url, Algorithm);
+    getAlgorithms(scope?: any): Observable<Algorithm[]> {
+        var vm = this;
+        if (scope) {
+            vm = scope
+        }
+        var url = vm.baseUrl + '/algorithm';
+        return vm.genericHttpService.getMany<Algorithm>(url, Algorithm);
     }
 
     getAlgorithm(id: string): Observable<Algorithm> {
+        console.log('this?', this);
         var url = this.baseUrl + '/algorithm/' + id + '/';
         return this.genericHttpService.getOne<Algorithm>(url, Algorithm);
     }
@@ -352,7 +361,7 @@ export class XBitApiService {
         this.genericHttpService.delete(url);
     }
     /********* MinerAlgorithm *********/
-    getMinerAlgorithms(): Observable<MinerAlgorithm[]> {
+    getMinerAlgorithms(scope?: any): Observable<MinerAlgorithm[]> {
         var url = this.baseUrl + '/mineralgorithm/';
         return this.genericHttpService.getMany<MinerAlgorithm>(url, MinerAlgorithm);
     }

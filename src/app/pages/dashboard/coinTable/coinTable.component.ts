@@ -12,7 +12,7 @@ import { CoinMarketCapCoin } from '../../../entities/coinmarketcap-coin';
 })
 export class CoinTable {
   coinTableData: CoinMarketCapCoin[] = [];
-
+  
   constructor(private dataService: DataService) {
     dataService.coinMarketCapCoins.subscribe( res => {
       res.forEach(element => {

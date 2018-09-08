@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 
 import {TrafficChartService} from './trafficChart.service';
 import * as Chart from 'chart.js';
+import { DataService } from '../../../services/data/data.service';
 
 @Component({
   selector: 'traffic-chart',
@@ -14,7 +15,10 @@ export class TrafficChart {
 
   public doughnutData: Array<Object>;
 
-  constructor(private trafficChartService:TrafficChartService) {
+  constructor(
+    private trafficChartService:TrafficChartService, 
+    private dataService: DataService
+  ) {
     this.doughnutData = trafficChartService.getData();
   }
 

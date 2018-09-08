@@ -6,6 +6,7 @@ import { Miner } from '../../../entities/XBitApi/miner';
 import { MinerType } from '../../../entities/XBitApi/minertype';
 import { XBitApiService } from '../../../services/xbitapi/xbit-api.service';
 import { Algorithm } from '../../../entities/XBitApi/algorithm';
+import { MinerAlgorithm } from '../../../entities/XBitApi/mineralgorithm';
 
 @Component({
   selector: 'miners-table',
@@ -16,7 +17,8 @@ export class MinersTable {
 
   miners: Miner[] = [];
   minerTypes: MinerType[] = [];
-  algorithms: Algorithm[] = [];
+  minerAlgorithms: MinerAlgorithm[] = [];
+
 
   minerTableData: any[] = [];
 
@@ -28,8 +30,8 @@ export class MinersTable {
     dataService.minerTypes.subscribe( res => {
       this.minerTypes = res;
     });
-    dataService.algorithms.subscribe( res => {
-      this.algorithms = res;
+    dataService.minerAlgorithm.subscribe( res => {
+      this.minerAlgorithms = res;
     });
 
     this.miners.forEach(element => {
@@ -37,11 +39,16 @@ export class MinersTable {
     });
   }
 
+  private getCountOfMinersByMinerType(pid: string): any {
+    let pMiners = this.miners.filter(x => x.minerTypeId == pid);
+    return pMiners.length;
+  }
+
   private getMinerTypeById(pid: string): MinerType {
     return this.minerTypes.filter(x => x.id == pid)[0];
   }
 
-  private getAlgorithmById(pid: string): Algorithm {
-    return this.algorithms.filter(x => x.id == pid)[0];
+  private getMinerAlgorithmByMinerTypeId(pid: string): MinerAlgorithm {
+    return this.minerAlgorithms.filter(x => x.minerTypeId == pid)[0];
   }
 }
