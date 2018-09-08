@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from '../cookie/cookie.service';
 import { GenericHttpService } from '../generichttp/generic-http.service';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import jwtDecode = require('jwt-decode');
 
 import { User } from '../../entities/XBitApi/user';
