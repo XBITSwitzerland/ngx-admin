@@ -18,8 +18,6 @@ export class Login {
       .subscribe(result => {
         if (result) {
           this.router.navigateByUrl('/pages/dashboard')
-        } else {
-          // error handling for failed login
         }
       })
   }
