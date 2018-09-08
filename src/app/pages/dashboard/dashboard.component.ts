@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CoinMarketCapService } from '../../services/coinmarketcap/coinmarketcap.service';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'dashboard',
@@ -8,10 +10,13 @@ import { CoinMarketCapService } from '../../services/coinmarketcap/coinmarketcap
 })
 export class Dashboard {
 
-  constructor(private service: CoinMarketCapService) {
-  service.getBitcoin().subscribe((res) => {
-    console.log(res);
-  });
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
+    if (!authenticationService.isAuthenticated()) {
+      router.navigateByUrl('/login')
+    }
   }
 
 }

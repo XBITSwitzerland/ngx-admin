@@ -18,10 +18,13 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import { ErrorHandlerService } from './services/errorhandler/error-handler.service';
 import { GenericHttpService } from './services/generichttp/generic-http.service';
-import { CoinmarketcapService } from './services/coinmarketcap/coinmarketcap.service';
+import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.service';
 import { ErrorMessageService } from './services/errormessage/error-message.service';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { CookieService } from './services/cookie/cookie.service';
+import { AuthenticationInterceptor } from './services/authentication/authentication-interceptor.service';
 
 
 // Application wide providers
@@ -61,9 +64,16 @@ export type StoreType = {
     ErrorHandlerService,
     ErrorMessageService,
     GenericHttpService,
-    CoinmarketcapService,
+    CoinMarketCapService,
     HttpClient,
     DataService,
+    AuthenticationService,
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    }
   ]
 })
 

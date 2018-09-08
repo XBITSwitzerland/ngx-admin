@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { User } from '../../entities/XBitApi/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -8,26 +10,31 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 })
 export class Login {
 
-  public form:FormGroup;
-  public email:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
+  email: string;
+  password: string;
 
-  constructor(fb:FormBuilder) {
-    this.form = fb.group({
-      'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-    });
-
-    this.email = this.form.controls['email'];
-    this.password = this.form.controls['password'];
-  }
-
-  public onSubmit(values:Object):void {
-    this.submitted = true;
-    if (this.form.valid) {
-      // your code goes here
-      // console.log(values);
+  login(): void {
+    if (this.validateEmail(this.email)) {
+      this.authenticationService.login(new User(this.email, this.password))
+        .subscribe(result => {
+          if (result) {
+            this.router.navigateByUrl('/pages/dashboard')
+          } else {
+            // error handling for failed login
+          }
+        })
+    } else {
+      // error handling for incorrect email structure
     }
   }
+
+  private validateEmail(email: string): boolean {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) { }
 }

@@ -9,19 +9,19 @@
       </div>
     </div>
     <div class="auth-block-content">
-    <form class="form-horizontal">
+    <form class="form-horizontal" (submit)="login()">
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 auth-label control-label">Email</label>
 
         <div class="col-sm-12">
-          <input type="email" class="form-control auth-input-own" id="inputEmail3" placeholder="Email">
+          <input type="email" class="form-control auth-input-own" id="inputEmail3" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
         </div>
       </div>
       <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 auth-label control-label">Password</label>
 
         <div class="col-sm-12">
-          <input type="password" class="form-control auth-input-own" id="inputPassword3" placeholder="Password">
+          <input type="password" class="form-control auth-input-own" id="inputPassword3" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
         </div>
       </div>
       <div class="form-group">
