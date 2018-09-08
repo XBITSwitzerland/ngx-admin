@@ -54,6 +54,14 @@ export class GenericHttpService {
       });
   }
 
+  postWithResponse<T>(url: string, body: T): Observable<any> {
+    return this.http.post(url, body)
+      .catch(error => {
+        this.errorHandlerService.handleError(error);
+        return error;
+      });
+  }
+
   put<T>(url: string, body: T): void {
     this.http.put(url, body)
       .catch(error => {

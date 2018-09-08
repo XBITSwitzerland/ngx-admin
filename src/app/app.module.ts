@@ -25,6 +25,10 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProxyInterceptor } from './services/proxy/proxy-interceptor.service';
 import { XBitApiService } from './services/xbitapi/xbit-api.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { CookieService } from './services/cookie/cookie.service';
+import { AuthenticationInterceptor } from './services/authentication/authentication-interceptor.service';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -67,6 +71,7 @@ export type StoreType = {
     CoinMarketCapService,
     HttpClient,
     DataService,
+<<<<<<< HEAD
     XBitApiService,
     {
       provide: HTTP_INTERCEPTORS,
@@ -74,6 +79,15 @@ export type StoreType = {
       multi: true
     },
     ToastrService
+=======
+    AuthenticationService,
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    }
+>>>>>>> feat(authentication): add basics of authentication and login
   ]
 })
 
