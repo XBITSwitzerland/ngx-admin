@@ -14,23 +14,14 @@ export class Login {
   password: string;
 
   login(): void {
-    if (this.validateEmail(this.email)) {
-      this.authenticationService.login(new User(this.email, this.password))
-        .subscribe(result => {
-          if (result) {
-            this.router.navigateByUrl('/pages/dashboard')
-          } else {
-            // error handling for failed login
-          }
-        })
-    } else {
-      // error handling for incorrect email structure
-    }
-  }
-
-  private validateEmail(email: string): boolean {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    this.authenticationService.login(new User(this.email, this.password))
+      .subscribe(result => {
+        if (result) {
+          this.router.navigateByUrl('/pages/dashboard')
+        } else {
+          // error handling for failed login
+        }
+      })
   }
 
   constructor(
