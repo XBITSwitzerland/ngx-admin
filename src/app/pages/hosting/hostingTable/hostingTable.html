@@ -8,6 +8,7 @@
       <th class="align-right">Amount</th>
       <th class="align-right">Price per 100W</th>
       <th class="align-right">Total Price per Month</th>
+      <th class="align-right">Startdate</th>
       <th class="align-right">Enddate</th>
     </tr>
     </thead>
@@ -19,6 +20,7 @@
       <td class="align-right balance-table-data">{{item.amount}}x</td>
       <td class="align-right balance-table-data">{{item.price}} $</td>
       <td class="align-right balance-table-data">{{item.price * item.watt / 100}} $ / {{item.price * item.watt * item.amount / 100}} $</td>
+      <td class="align-right balance-table-data">{{item.startdate}}</td>
       <td class="align-right balance-table-data">{{item.enddate}}</td>
     </tr>
     </tbody>
