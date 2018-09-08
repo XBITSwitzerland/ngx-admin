@@ -31,19 +31,25 @@ export class AuthenticationService {
     });
   }
 
-  logout(): void {
-    if (this.loggedIn) {
-      // wait for infos from mario
-    }
+  logout(): Observable<boolean> {
+    return new Observable(observer => {
+      if (this.loggedIn) {
+        var url = this.baseUrl + '/Login/Logout';
+        this.genericHttpService.postWithResponse(url, this.cookieService.getToken())
+          .subscribe(
+            success => {
+              observer.next(true);
+            },
+            error => {
+              observer.next(false);
+            }
+          )
+      }
+      observer.next(false);
+    });
   }
 
   isAuthenticated(): boolean {
-    // var token = jwtDecode(this.cookieService.getToken());
-    // if (!token) {
-    //   return false;
-    // }
-    // var currentTime = new Date().getTime() / 1000;
-    // return !(currentTime > token.exp)
     var tokenRaw = this.cookieService.getToken();
     if (tokenRaw) {
       var token = jwtDecode(tokenRaw);
