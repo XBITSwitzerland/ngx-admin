@@ -23,7 +23,7 @@ import { UserInformation } from '../../entities/XBitApi/userinformation';
 
 export class XBitApiService {
 
-    baseUrl = "localhost:9999/api"
+    baseUrl = "http://localhost:52706/api"
 
     /********* Address *********/
     getAddress(id: string, scope?: any): Observable<Address> {

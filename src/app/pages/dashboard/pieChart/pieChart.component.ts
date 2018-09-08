@@ -29,7 +29,7 @@ export class PieChart {
   constructor(
     private dataService: DataService
   ) {
-    //dataService.update(DataType.XBitApi, "Algorithms");
+    dataService.update(DataType.XBitApi, "Algorithm");
     dataService.algorithms.subscribe( res => {
       this.algorithms = res;
       console.log("Algorithms:" + JSON.stringify(res));

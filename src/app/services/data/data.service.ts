@@ -97,7 +97,7 @@ export class DataService {
         if (controllerName) {
           controllerName = controllerName.toLowerCase();
           var controller = controllerName.charAt(0).toUpperCase() + controllerName.slice(1);
-          var getFunction = this.xbitApiService['get' + controller];
+          var getFunction = this.xbitApiService['get' + controller + 's'];
 
           if (getFunction) {
             getFunction(this.xbitApiService).subscribe(response => {
@@ -111,7 +111,7 @@ export class DataService {
 
   constructor(
     private coinMarketCapService: CoinMarketCapService,
-    private xbitApiService: XBitApiService
+    public xbitApiService: XBitApiService
   ) {
     this.update(DataType.CoinMarketCap, "");
    }
