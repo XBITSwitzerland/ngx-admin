@@ -100,7 +100,7 @@ export class DataService {
           var getFunction = this.xbitApiService['get' + controller];
 
           if (getFunction) {
-            getFunction().subscribe(response => {
+            getFunction(this.xbitApiService).subscribe(response => {
               (this[controllerName + 'Source'] as BehaviorSubject<T[]>).next(response);
             });
           }
