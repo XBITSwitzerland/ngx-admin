@@ -5,6 +5,7 @@ import { UserInformation } from '../../entities/XBitApi/userinformation';
 import { DataService } from '../../services/data/data.service';
 import { XBitApiService } from '../../services/xbitapi/xbit-api.service'
 import { Address } from '../../entities/XBitApi/address';
+import { Country } from '../../entities/XBitApi/country';
 
 @Component({
   selector: 'profile',
@@ -15,6 +16,7 @@ export class Profile {
   user: Customer;
   userinformation: UserInformation;
   address: Address;
+  countries: Country[];
 
   constructor(dataService: DataService, xbitApiService: XBitApiService) {
     // Get Customers
@@ -29,22 +31,22 @@ export class Profile {
         xbitApiService.getAddress(res[0].addressId).subscribe( res => {
           this.address = res;
         });
+
+        dataService.xbitApiService.getCountries().subscribe( res => {
+          this.countries = res;
+        });
       } else {
-        this.userinformation = new UserInformation("");
+        /*this.userinformation = new UserInformation("");
         this.address = new Address("");
-        // Create Mock Userinformation
         this.userinformation.name = "Mustermann";
         this.userinformation.surname = "Max";
         this.userinformation.username = "Max1234";
         this.userinformation.phone = "1234";
         this.userinformation.email = "test@test.ch";
         this.userinformation.birthDate = "2000-06-27";
-
-        // Create Mock Address
         this.address.place = "Luzern";
         this.address.street = "Udligenswilerstrasse 13";
-        this.address.zip = "6043";
-        
+        this.address.zip = "6043";*/
       }
     });
   }
