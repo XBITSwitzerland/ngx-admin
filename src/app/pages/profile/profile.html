@@ -57,7 +57,10 @@
             <label for="inputCountry" class="col-sm-3 control-label">Country</label>
   
             <div class="col-sm-9">
-              <input type="email" class="form-control" id="inputCountry" placeholder="">
+              <!--<input type="email" class="form-control" id="inputCountry" placeholder="">-->
+              <select *ngFor="let item of countries" class="form-control" name="country" id="inputCountry">
+                <option value="{{item.id}}">{{item.name}}</option>
+              </select>
             </div>
           </div>
           <div class="form-group row clearfix">
