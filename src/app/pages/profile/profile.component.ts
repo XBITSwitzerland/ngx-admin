@@ -36,7 +36,17 @@ export class Profile {
           this.countries = res;
         });
       } else {
-
+        this.userinformation = new UserInformation("");
+        this.address = new Address("");
+        this.userinformation.name = "Mustermann";
+        this.userinformation.surname = "Max";
+        this.userinformation.username = "Max1234";
+        this.userinformation.phone = "1234";
+        this.userinformation.email = "test@test.ch";
+        this.userinformation.birthDate = "2000-06-27";
+        this.address.place = "Luzern";
+        this.address.street = "Udligenswilerstrasse 13";
+        this.address.zip = "6043";
       }
     });
   }
