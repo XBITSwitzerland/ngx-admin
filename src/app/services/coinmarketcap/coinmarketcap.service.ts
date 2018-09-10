@@ -9,7 +9,7 @@ import { CoinMarketCapCoin } from '../../entities/coinmarketcap-coin';
 
 export class CoinMarketCapService {
 
-    baseUrl = "https://api.coinmarketcap.com/v2/"
+    baseUrl = "https://api.coinmarketcap.com/v2"
 
     private getTicker(id: string): Observable<CoinMarketCapCoin> {
       var url = this.baseUrl + '/ticker/' + id + '/';
