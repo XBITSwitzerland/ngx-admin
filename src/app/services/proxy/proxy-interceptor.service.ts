@@ -22,10 +22,7 @@ export class ProxyInterceptor implements HttpInterceptor {
   }
 
   getNewUrl(url: string): string {
-    var newUrl = '';
-    if (url.indexOf('ticker') > -1) {
-      newUrl = '/api';
-    }
+    var newUrl = '/api';
     var splittedUrl = url.split('/');
     for (var i = 3; i < splittedUrl.length; i++) {
       newUrl += '/' + splittedUrl[i];
