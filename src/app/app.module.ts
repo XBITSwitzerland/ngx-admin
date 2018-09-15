@@ -19,7 +19,6 @@ import { PagesModule } from './pages/pages.module';
 import { ErrorHandlerService } from './services/errorhandler/error-handler.service';
 import { GenericHttpService } from './services/generichttp/generic-http.service';
 import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.service';
-import { ErrorMessageService } from './services/errormessage/error-message.service';
 import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
@@ -62,7 +61,6 @@ export type StoreType = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
     ErrorHandlerService,
-    ErrorMessageService,
     GenericHttpService,
     CoinMarketCapService,
     HttpClient,
