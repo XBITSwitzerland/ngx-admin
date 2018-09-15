@@ -8,6 +8,7 @@ export class ErrorMessageService {
   errorMessage$ = this.errorMessageSource.asObservable();
 
   addErrorMessage(message: string): void {
+    console.log("Test 3:"+message);
     this.errorMessageSource.next(message);
     console.log('ERROR: ' + message);
   }

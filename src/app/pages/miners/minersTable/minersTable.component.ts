@@ -7,6 +7,7 @@ import { MinerType } from '../../../entities/XBitApi/minertype';
 import { XBitApiService } from '../../../services/xbitapi/xbit-api.service';
 import { Algorithm } from '../../../entities/XBitApi/algorithm';
 import { MinerAlgorithm } from '../../../entities/XBitApi/mineralgorithm';
+import { DataType } from '../../../entities/enums/data-type';
 
 @Component({
   selector: 'miners-table',
@@ -24,6 +25,10 @@ export class MinersTable {
 
 
   constructor(private dataService: DataService) {
+    dataService.update(DataType.XBitApi, "Miner");
+    dataService.update(DataType.XBitApi, "MinerType");
+    dataService.update(DataType.XBitApi, "MinerAlgorithm");
+
     dataService.miners.subscribe( res => {
       this.miners = res;
     });

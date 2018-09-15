@@ -3,6 +3,7 @@ import { MinerType } from '../../../entities/XBitApi/minertype';
 import { Miner } from '../../../entities/XBitApi/miner';
 import { HostingPeriod } from '../../../entities/XBitApi/hostingperiod';
 import { DataService } from '../../../services/data/data.service';
+import { DataType } from '../../../entities/enums/data-type';
 
 @Injectable()
 export class HostingTableService {
@@ -14,6 +15,10 @@ export class HostingTableService {
   constructor(
     private dataService: DataService
   ) {
+    dataService.update(DataType.XBitApi, "MinerType");
+    dataService.update(DataType.XBitApi, "Miner");
+    dataService.update(DataType.XBitApi, "HostingPeriod");
+
     dataService.minerTypes.subscribe( res => {
       this.minerTypes = res;
     });

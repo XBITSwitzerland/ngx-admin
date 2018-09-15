@@ -74,8 +74,8 @@ export class DataService {
   private coinMarketCapCoinsSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
   coinMarketCapCoins = this.coinMarketCapCoinsSource.asObservable();
 
-  private minerAlgorithmSource = new BehaviorSubject<MinerAlgorithm[]>([]);
-  minerAlgorithm = this.minerAlgorithmSource.asObservable();
+  private minerAlgorithmsSource = new BehaviorSubject<MinerAlgorithm[]>([]);
+  minerAlgorithm = this.minerAlgorithmsSource.asObservable();
 
   update<T>(dataType: DataType, controllerName: string): void {
     switch (dataType) {
@@ -101,7 +101,8 @@ export class DataService {
 
           if (getFunction) {
             getFunction(this.xbitApiService).subscribe(response => {
-              (this[controllerName + 'Source'] as BehaviorSubject<T[]>).next(response);
+              console.log("Name:" + controllerName);
+              (this[controllerName + 'sSource'] as BehaviorSubject<T[]>).next(response);
             });
           }
         }
