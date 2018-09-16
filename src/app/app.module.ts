@@ -20,9 +20,10 @@ import { ErrorHandlerService } from './services/errorhandler/error-handler.servi
 import { GenericHttpService } from './services/generichttp/generic-http.service';
 import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.service';
 import { ErrorMessageService } from './services/errormessage/error-message.service';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
 import { XBitApiService } from './services/xbitapi/xbit-api.service';
+import { ProxyInterceptor } from './services/proxy/proxy-interceptor.service';
 
 
 // Application wide providers
@@ -65,7 +66,12 @@ export type StoreType = {
     CoinMarketCapService,
     HttpClient,
     DataService,
-    XBitApiService
+    XBitApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ProxyInterceptor,
+      multi: true
+    }
   ]
 })
 

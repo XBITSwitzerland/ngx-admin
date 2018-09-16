@@ -1,14 +1,28 @@
-FROM node:6.9.5
+FROM node:carbon as builder
 
-RUN git clone https://github.com/akveo/ng2-admin.git /var/www \
-    && cd /var/www \
-    && npm install --global rimraf \
-    && npm run clean \
-    && npm install --global webpack webpack-dev-server typescript@2.1.5 \
-    && npm install \
-    && npm run build:prod:aot
+# Reduce log lever
+ENV NPM_CONFIG_LOGLEVER warn
 
-EXPOSE 8080
+# Add Sources
+WORKDIR /opt/
 
-WORKDIR /var/www
-ENTRYPOINT ["npm", "run", "start:prod"]
+# Copy package.json first so that the npm install layer does not change when other code does
+COPY package.json ./
+RUN npm install
+RUN npm install @angular/cli -g
+
+COPY . ./
+RUN ng build --prod
+
+FROM node:carbon
+
+WORKDIR /opt/backend
+
+COPY --from=builder /opt/backend .
+COPY --from=builder /opt/dist ./dist
+
+RUN npm install
+
+EXPOSE 8081
+
+CMD ["npm", "start"]
