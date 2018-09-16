@@ -18,11 +18,11 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import { ErrorHandlerService } from './services/errorhandler/error-handler.service';
 import { GenericHttpService } from './services/generichttp/generic-http.service';
-import { CoinmarketcapService } from './services/coinmarketcap/coinmarketcap.service';
-import { ErrorMessageService } from './services/errormessage/error-message.service';
+import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.service';
 import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
-
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -46,6 +46,7 @@ export type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
     RouterModule,
@@ -55,15 +56,16 @@ export type StoreType = {
     NgbModule.forRoot(),
     PagesModule,
     routing,
+    ToastrModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
     ErrorHandlerService,
-    ErrorMessageService,
     GenericHttpService,
-    CoinmarketcapService,
+    CoinMarketCapService,
     HttpClient,
     DataService,
+    ToastrService
   ]
 })
 
@@ -71,4 +73,4 @@ export class AppModule {
 
   constructor(public appState: AppState) {
   }
-}
+}CoinMarketCapService
