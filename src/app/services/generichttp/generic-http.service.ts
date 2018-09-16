@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/empty';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { IData } from '../../Entities/Idata';
+import { IData } from '../../entities/Idata';
 import { ErrorHandlerService } from '../errorhandler/error-handler.service';
 import { HttpClient } from '@angular/common/http';
 
