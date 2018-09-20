@@ -63,34 +63,16 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: '',
+        path: 'logout',
         data: {
           menu: {
-            title: 'general.menu.pages',
-            icon: 'ion-document',
+            title: 'Logout',
+            icon: 'ion-android-exit',
             selected: false,
             expanded: false,
-            order: 650,
+            order: 4
           }
-        },
-        children: [
-          {
-            path: ['/login'],
-            data: {
-              menu: {
-                title: 'general.menu.login'
-              }
-            }
-          },
-          {
-            path: ['/register'],
-            data: {
-              menu: {
-                title: 'general.menu.register'
-              }
-            }
-          }
-        ]
+        }
       }
     ]
   }

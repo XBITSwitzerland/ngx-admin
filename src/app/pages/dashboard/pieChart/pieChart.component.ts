@@ -30,12 +30,18 @@ export class PieChart {
     private dataService: DataService
   ) {
     dataService.update(DataType.XBitApi, "Algorithm");
+    dataService.update(DataType.XBitApi, "Miner");
+    dataService.update(DataType.XBitApi, "MinerAlgorithm");
+
     dataService.algorithms.subscribe( res => {
       this.algorithms = res;
-      console.log("Algorithms:" + JSON.stringify(res));
     });
-
-
+    dataService.miners.subscribe( res => {
+      this.miners = res;
+    });
+    dataService.minerAlgorithm.subscribe( res => {
+      this.minerAlgorithms = res;
+    });
     this.chartColor = "#ccc";
   }
 

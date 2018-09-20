@@ -13,19 +13,19 @@
           <div class="form-group row clearfix">
             <label for="inputFirstName" class="col-sm-3 control-label">Username</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputUsername" placeholder="" value="{{userinformation.username}}">
+              <input type="text" class="form-control" id="inputUsername" placeholder="" value="{{userinformation[0]?.username}}">
             </div>
           </div>
           <div class="form-group row clearfix">
             <label for="inputLastName" class="col-sm-3 control-label">Surname</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputSurname" placeholder="" value="{{userinformation.surname}}">
+              <input type="text" class="form-control" id="inputSurname" placeholder="" value="{{userinformation[0]?.surname}}">
             </div>
           </div>
           <div class="form-group row clearfix">
             <label for="inputLastName" class="col-sm-3 control-label">Lastname</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputLastName" placeholder="" value="{{userinformation.name}}">
+              <input type="text" class="form-control" id="inputLastName" placeholder="" value="{{userinformation[0]?.name}}">
             </div>
           </div>
         </div>
@@ -33,19 +33,19 @@
           <div class="form-group row clearfix">
             <label for="inputBirthdate" class="col-sm-3 control-label">Birthdate</label>
             <div class="col-sm-9">
-              <input type="date" class="form-control" id="inputBirthdate" placeholder="" value="{{userinformation.birthDate}}">
+              <input type="date" class="form-control" id="inputBirthdate" placeholder="" value="{{userinformation[0]?.birthDate}}">
             </div>
           </div>
           <div class="form-group row clearfix">
             <label for="inputLastName" class="col-sm-3 control-label">Phone</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputPhone" placeholder="" value="{{userinformation.phone}}">
+              <input type="text" class="form-control" id="inputPhone" placeholder="" value="{{userinformation[0]?.phone}}">
             </div>
           </div>
           <div class="form-group row clearfix">
             <label for="inputEmail" class="col-sm-3 control-label">Email</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputEmail" placeholder="" value="{{userinformation.email}}">
+              <input type="text" class="form-control" id="inputEmail" placeholder="" value="{{userinformation[0]?.email}}">
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
             <label for="inputPlace" class="col-sm-3 control-label">Place</label>
   
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputPlace" placeholder="" value="{{address.place}}">
+              <input type="text" class="form-control" id="inputPlace" placeholder="" value="{{address[0]?.place}}">
             </div>
           </div>
         </div>
@@ -75,13 +75,13 @@
           <div class="form-group row clearfix">
             <label for="inputZip" class="col-sm-3 control-label">Zip-Code</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputZip" placeholder="" value="{{address.zip}}">
+              <input type="text" class="form-control" id="inputZip" placeholder="" value="{{address[0]?.zip}}">
             </div>
           </div>
           <div class="form-group row clearfix">
             <label for="inputRoom" class="col-sm-3 control-label">Street</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputRoom" placeholder="" value="{{address.street}}">
+              <input type="text" class="form-control" id="inputRoom" placeholder="" value="{{address[0]?.street}}">
             </div>
           </div>
         </div>
