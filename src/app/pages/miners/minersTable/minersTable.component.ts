@@ -20,9 +20,7 @@ export class MinersTable {
   minerTypes: MinerType[] = [];
   minerAlgorithms: MinerAlgorithm[] = [];
 
-
   minerTableData: any[] = [];
-
 
   constructor(private dataService: DataService) {
     dataService.update(DataType.XBitApi, "Miner");
