@@ -71,15 +71,13 @@ export type StoreType = {
     CoinMarketCapService,
     HttpClient,
     DataService,
-<<<<<<< HEAD
     XBitApiService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ProxyInterceptor,
       multi: true
     },
-    ToastrService
-=======
+    ToastrService,
     AuthenticationService,
     CookieService,
     {
@@ -87,7 +85,6 @@ export type StoreType = {
       useClass: AuthenticationInterceptor,
       multi: true
     }
->>>>>>> feat(authentication): add basics of authentication and login
   ]
 })
 
