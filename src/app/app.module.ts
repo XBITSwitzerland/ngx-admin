@@ -19,10 +19,12 @@ import { PagesModule } from './pages/pages.module';
 import { ErrorHandlerService } from './services/errorhandler/error-handler.service';
 import { GenericHttpService } from './services/generichttp/generic-http.service';
 import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.service';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProxyInterceptor } from './services/proxy/proxy-interceptor.service';
+import { XBitApiService } from './services/xbitapi/xbit-api.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -65,6 +67,12 @@ export type StoreType = {
     CoinMarketCapService,
     HttpClient,
     DataService,
+    XBitApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ProxyInterceptor,
+      multi: true
+    },
     ToastrService
   ]
 })

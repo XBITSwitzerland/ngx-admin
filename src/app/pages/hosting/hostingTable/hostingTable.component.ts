@@ -10,6 +10,6 @@ export class HostingTable {
   hostingTableData:Array<any>;
 
   constructor(private _hostingTablesService: HostingTableService) {
-    this.hostingTableData = _hostingTablesService.hostingTableData;
+    this.hostingTableData = _hostingTablesService.getHostingTableData();
   }
 }

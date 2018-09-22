@@ -6,6 +6,9 @@ import {Component} from '@angular/core';
   templateUrl: './balances.html'
 })
 export class Balances {
+
+  isDisabled: boolean;
+
   constructor() {
   }
 }

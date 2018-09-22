@@ -12,12 +12,12 @@ export class PieChartService {
     return [
       {
         color: pieColor,
-        description: 'dashboard.sha256',
+        description: 'SHA',
         stats: '135 TH/s',
         icon: 'person',
       }, {
         color: pieColor,
-        description: 'dashboard.scrypt',
+        description: 'Hello',
         stats: '1100 MH/s',
         icon: 'money',
       }, {
@@ -26,7 +26,7 @@ export class PieChartService {
         stats: '76.3 GH/s',
         icon: 'face',
       }, {
-        color: pieColor,
+        color: "#ccc",
         description: 'dashboard.ethash',
         stats: '128 MH/s',
         icon: 'refresh',

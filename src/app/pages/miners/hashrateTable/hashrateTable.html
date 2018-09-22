@@ -1,19 +1,31 @@
 <div class="horizontal-scroll">
-  <table class="table table-hover">
+  <table class="table table-hover coin-table-class">
     <thead>
     <tr class="black-muted-bg">
       <th class="browser-icons"></th>
       <th class="align-right">Name</th>
-      <th class="align-right col-s-0">Hashrate</th>
-      <th class="align-right">Mined last 24h</th>
+      <th class="align-right">Price</th>
+      <th class="align-right">Marketcap</th>
+      <th class="align-right col-s-0">Change 7d</th>
+      <th class="table-arr col-s-0"></th>
+      <th class="align-right col-s-0">Change 24h</th>
+      <th class="table-arr col-s-0"></th>
+      <th class="align-right col-s-0">Change 1h</th>
+      <th class="table-arr col-s-0"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of hashrateTableData" class="no-top-border">
-      <td><img src="{{ ( item.image | baAppPicture ) }}" width="20" height="20"></td>
-      <td class="align-right">{{item.name}} ({{item.shortName}})</td>
-      <td class="align-right col-s-0">{{item.hashrate}} {{item.hashrateSuffix}}</td>
-      <td class="align-right">{{item.minedLast}} {{item.shortName}} / {{item.minedLast * item.price}} $</td>
+    <tr *ngFor="let item of coinTableData" class="no-top-border">
+      <td><img src="assets/img/coins/{{item.name}}.png" width="20" height="20"></td>
+      <td class="align-right"><span class="coin-table-bold">{{item.name}}</span> ({{item.symbol}})</td>
+      <td class="align-right coin-table-bold">{{item.quotes.USD.price | number}} $</td>
+      <td class="align-right">{{item.quotes.USD.market_cap | number}} $</td>
+      <td class="align-right balance-table-data coin-table-bold" [ngClass]="{'price-up-text': item.quotes.USD.percent_change_7d >= 0, 'price-down-text': item.quotes.USD.percent_change_7d < 0 }">{{item.quotes.USD.percent_change_7d}} %</td>
+      <td class="table-arr col-s-0"><i [ngClass]="{'icon-up': item.quotes.USD.percent_change_7d >= 0, 'icon-down': item.quotes.USD.percent_change_7d < 0 }"></i></td>
+      <td class="align-right balance-table-data coin-table-bold" [ngClass]="{'price-up-text': item.quotes.USD.percent_change_24h >= 0, 'price-down-text': item.quotes.USD.percent_change_24h < 0 }">{{item.quotes.USD.percent_change_24h}} %</td>
+      <td class="table-arr col-s-0"><i [ngClass]="{'icon-up': item.quotes.USD.percent_change_24h >= 0, 'icon-down': item.quotes.USD.percent_change_24h < 0 }"></i></td>
+      <td class="align-right balance-table-data coin-table-bold" [ngClass]="{'price-up-text': item.quotes.USD.percent_change_1h >= 0, 'price-down-text': item.quotes.USD.percent_change_1h < 0 }">{{item.quotes.USD.percent_change_1h}} %</td>
+      <td class="table-arr col-s-0"><i [ngClass]="{'icon-up': item.quotes.USD.percent_change_1h >= 0, 'icon-down': item.quotes.USD.percent_change_1h < 0 }"></i></td>
     </tr>
     </tbody>
   </table>

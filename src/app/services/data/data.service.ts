@@ -3,6 +3,8 @@ import { CoinMarketCapService } from '../coinmarketcap/coinmarketcap.service';
 import { XBitApiService } from '../xbitapi/xbit-api.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { DataType } from '../../entities/enums/data-type';
+import { CoinMarketCapCoinName } from '../../entities/enums/coinmarketcap-coin-name';
 
 import { CoinMarketCapCoin } from '../../entities/coinmarketcap-coin';
 import { Address } from '../../entities/XBitApi/address';
@@ -20,11 +22,11 @@ import { MinerType } from '../../entities/XBitApi/minertype';
 import { MiningFarm } from '../../entities/XBitApi/miningfarm';
 import { UserInformation } from '../../entities/XBitApi/userinformation';
 
+import 'rxjs/add/observable/forkJoin';
+import { MinerAlgorithm } from '../../entities/XBitApi/mineralgorithm';
+
 @Injectable()
 export class DataService {
-
-  private coinmarketcapcoinsSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  coinmarketcapcoins = this.coinmarketcapcoinsSource.asObservable();
 
   private addressesSource = new BehaviorSubject<Address[]>([]);
   adresses = this.addressesSource.asObservable();
@@ -69,75 +71,49 @@ export class DataService {
   userInformations = this.userInformationsSource.asObservable();
 
   /* Coinmarketcap Coins */ 
+  private coinMarketCapCoinsSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
+  coinMarketCapCoins = this.coinMarketCapCoinsSource.asObservable();
 
-  private bitcoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  bitcoin = this.bitcoinSource.asObservable();
+  private minerAlgorithmsSource = new BehaviorSubject<MinerAlgorithm[]>([]);
+  minerAlgorithm = this.minerAlgorithmsSource.asObservable();
 
-  private ethereumSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  ethereum = this.ethereumSource.asObservable();
+  update<T>(dataType: DataType, controllerName: string): void {
+    switch (dataType) {
+      case DataType.CoinMarketCap:
+        var observables: Observable<CoinMarketCapCoin>[] = [];
 
-  private litecoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  litecoin = this.litecoinSource.asObservable();
+        for (var coin in CoinMarketCapCoinName) {
+          if (isNaN(coin as any)) {
+            observables.push(this.coinMarketCapService['get' + coin]());
+          }
+        }
 
-  private ethereumClassicSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  ethereumClassic = this.ethereumClassicSource.asObservable();
+        Observable.forkJoin(observables).subscribe(coins => {
+          this.coinMarketCapCoinsSource.next(coins);
+        });
+        break;
 
-  private moneroSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  monero = this.moneroSource.asObservable();
+      case DataType.XBitApi:
+        if (controllerName) {
+          controllerName = controllerName.toLowerCase();
+          var controller = controllerName.charAt(0).toUpperCase() + controllerName.slice(1);
+          var getFunction = this.xbitApiService['get' + controller + 's'];
 
-  private dashSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  dash = this.dashSource.asObservable();
-
-  private vergeSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  verge = this.vergeSource.asObservable();
-
-  private dogecoinSource  = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  dogecoin = this.dogecoinSource.asObservable();
-
-  private zCashSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  zCash = this.zCashSource.asObservable();
-
-  private digiByteSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  digiByte = this.digiByteSource.asObservable();
-
-  private bytecoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  bytecoin = this.bytecoinSource.asObservable();
-
-  private decredSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  decred = this.decredSource.asObservable();
-
-  private bitcoinGoldSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  bitcoinGold = this.bitcoinGoldSource.asObservable();
-
-  private siacoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  siacoin = this.siacoinSource.asObservable();
-
-  private komodoSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  komodo = this.komodoSource.asObservable();
-
-  private zcoinSource = new BehaviorSubject<CoinMarketCapCoin[]>([]);
-  zcoin = this.zcoinSource.asObservable();
-
-  private CoinsArray: CoinMarketCapCoin[] = [];
-
-  update<T>(propertyName: string): void {
-    var observable: Observable<T[]>;
-    if (propertyName.toLowerCase().indexOf('coin') > -1 && propertyName.toLocaleLowerCase() !== 'xbitcoin') {
-      // use coinmarketcapService
-      observable = this.coinMarketCapService['get' + propertyName]();
-    } else {
-      // use XBitApiSercice
-      observable = this.xbitApiService['get' + propertyName]();
+          if (getFunction) {
+            getFunction(this.xbitApiService).subscribe(response => {
+              console.log("Name:" + controllerName);
+              (this[controllerName + 'sSource'] as BehaviorSubject<T[]>).next(response);
+            });
+          }
+        }
+        break;
     }
-    observable.subscribe(responseArray => {
-      this[propertyName + 'Source'].next(responseArray);
-    })
   }
 
   constructor(
     private coinMarketCapService: CoinMarketCapService,
-    private xbitApiService: XBitApiService
+    public xbitApiService: XBitApiService
   ) {
-    
+    this.update(DataType.CoinMarketCap, "");
    }
 }

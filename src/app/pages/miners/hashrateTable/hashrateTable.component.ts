@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 
 import {HashrateTableService} from './hashrateTable.service';
+import { DataService } from '../../../services/data/data.service';
+import { CoinMarketCapCoin } from '../../../entities/coinmarketcap-coin';
 
 @Component({
   selector: 'hashrate-table',
@@ -8,9 +10,14 @@ import {HashrateTableService} from './hashrateTable.service';
   styleUrls: ['./hashrateTable.scss']
 })
 export class HashrateTable {
-  hashrateTableData:Array<any>;
+  coinTableData:CoinMarketCapCoin[] = [];
 
-  constructor(private _hashrateTableService: HashrateTableService) {
-    this.hashrateTableData = _hashrateTableService.hashrateTableData;
+  constructor(private dataService: DataService) {
+    dataService.coinMarketCapCoins.subscribe( res => {
+      res.forEach(element => {
+        this.coinTableData.push(element);
+      });
+      console.log("CoinTable: " + this.coinTableData);
+    });
   }
 }

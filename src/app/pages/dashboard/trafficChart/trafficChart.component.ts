@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 
 import {TrafficChartService} from './trafficChart.service';
 import * as Chart from 'chart.js';
+import { DataService } from '../../../services/data/data.service';
+import { Miner } from '../../../entities/XBitApi/miner';
 
 @Component({
   selector: 'traffic-chart',
@@ -13,9 +15,16 @@ import * as Chart from 'chart.js';
 export class TrafficChart {
 
   public doughnutData: Array<Object>;
+  miners: Miner[] = [];
 
-  constructor(private trafficChartService:TrafficChartService) {
+  constructor(
+    private trafficChartService:TrafficChartService,
+    private dataService: DataService
+  ) {
     this.doughnutData = trafficChartService.getData();
+    dataService.miners.subscribe( res => {
+      this.miners = res;
+    });
   }
 
   ngAfterViewInit() {

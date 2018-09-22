@@ -1,0 +1,17 @@
+{
+    "name": "xbit-backend",
+    "version": "1.0.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "express": "^4.16.2",
+        "express-session": "^1.15.6",
+        "gulp": "^3.9.1",
+        "http-proxy": "^1.16.2",
+        "http-proxy-middleware": "^0.17.4"
+    },
+    "scripts": {
+        "start": "node backend.js"
+    },
+    "devDependencies": {}
+}

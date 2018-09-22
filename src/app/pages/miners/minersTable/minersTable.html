@@ -4,20 +4,22 @@
     <tr class="black-muted-bg">
       <th class="browser-icons"></th>
       <th class="align-right">Name</th>
-      <th class="align-right">Algorithm</th>
+      <th class="align-right">Watts</th>
       <th class="align-right">Hashrate</th>
       <th class="align-right">Pieces</th>
+      <th class="align-right">Total Watts</th>
       <th class="align-right">Total Hashrate</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of minersTableData" class="no-top-border">
-      <td><img src="{{ ( item.image | baAppPicture ) }}"  height="40"></td>
+    <tr *ngFor="let item of minerTypes" class="no-top-border">
+      <td><img src=""  height="40"></td>
       <td class="align-right">{{item.name}}</td>
-      <td class="align-right">{{item.algorithm}}</td>
-      <td class="align-right">{{item.hashrate}} {{item.hashrateSuffix}}</td>
-      <td class="align-right">{{item.pieces}}x</td>
-      <td class="align-right">{{item.pieces * item.hashrate}} {{item.hashrateSuffix}}</td>
+      <td class="align-right">{{item.watts}}</td>
+      <td class="align-right">{{getMinerAlgorithmByMinerTypeId(item.id).Hashrate}} H/s</td>
+      <td class="align-right">{{getCountOfMinersByMinerType(item.id)}}</td>
+      <td class="align-right">{{item.watts * getCountOfMinersByMinerType(item.id)}} W</td>
+      <td class="align-right">{{getMinerAlgorithmByMinerTypeId(item.id) * getCountOfMinersByMinerType(item.id)}}</td>
     </tr>
     </tbody>
   </table>

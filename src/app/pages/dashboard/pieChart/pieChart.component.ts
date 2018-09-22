@@ -3,6 +3,12 @@ import {Component} from '@angular/core';
 import {PieChartService} from './pieChart.service';
 
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
+import { Algorithm } from '../../../entities/XBitApi/algorithm';
+import { DataService } from '../../../services/data/data.service';
+import { DataType } from '../../../entities/enums/data-type';
+import { Data } from '../../../entities/XBitApi/data';
+import { MinerAlgorithm } from '../../../entities/XBitApi/mineralgorithm';
+import { Miner } from '../../../entities/XBitApi/miner';
 
 @Component({
   selector: 'pie-chart',
@@ -14,9 +20,48 @@ export class PieChart {
 
   public charts: Array<Object>;
   private _init = false;
+  public chartColor: string;
 
-  constructor(private _pieChartService: PieChartService) {
-    this.charts = this._pieChartService.getData();
+  public minerAlgorithms: MinerAlgorithm[] = [];
+  public algorithms: Algorithm[] = [];
+  private miners: Miner[] = [];
+
+  constructor(
+    private dataService: DataService
+  ) {
+    dataService.update(DataType.XBitApi, "Algorithm");
+    dataService.update(DataType.XBitApi, "Miner");
+    dataService.update(DataType.XBitApi, "MinerAlgorithm");
+
+    dataService.algorithms.subscribe( res => {
+      this.algorithms = res;
+    });
+    dataService.miners.subscribe( res => {
+      this.miners = res;
+    });
+    dataService.minerAlgorithm.subscribe( res => {
+      this.minerAlgorithms = res;
+    });
+    this.chartColor = "#ccc";
+  }
+
+  public getHashrateOfAlgorithm(pid: string): any {
+    let hashrate: number = 0;
+    let pminerAlgorithms = this.minerAlgorithms.filter(x => x.algorithmId == pid);
+    pminerAlgorithms.forEach(element => {
+      let minersCount = this.miners.filter(x => x.minerTypeId == element.minerTypeId).length;
+      hashrate += minersCount * element.hashrate;
+    });
+    return hashrate;
+  }
+
+  public getMinerCountOfAlgorithm(pid: string): any {
+    let minersCount: number = 0;
+    let pminerAlgorithms = this.minerAlgorithms.filter(x => x.algorithmId == pid);
+    pminerAlgorithms.forEach(element => {
+      minersCount += this.miners.filter(x => x.minerTypeId == element.minerTypeId).length;
+    });
+    return minersCount;
   }
 
   ngAfterViewInit() {

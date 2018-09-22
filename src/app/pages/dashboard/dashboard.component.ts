@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { CoinMarketCapService } from '../../services/coinmarketcap/coinmarketcap.service';
+import { DataService } from '../../services/data/data.service';
+import { CoinMarketCapCoin } from '../../entities/coinmarketcap-coin';
+import { DataType } from '../../entities/enums/data-type';
 
 @Component({
   selector: 'dashboard',
@@ -8,10 +10,8 @@ import { CoinMarketCapService } from '../../services/coinmarketcap/coinmarketcap
 })
 export class Dashboard {
 
-  constructor(private service: CoinMarketCapService) {
-  service.getBitcoin().subscribe((res) => {
-    console.log(res);
-  });
-  }
+  constructor(
+    private dataService: DataService
+  ) { }
 
 }
