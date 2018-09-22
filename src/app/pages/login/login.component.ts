@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { User } from '../../entities/XBitApi/user';
 import { Router } from '@angular/router';
+import * as sha256 from 'js-sha256';
 
 @Component({
   selector: 'login',
@@ -14,9 +15,12 @@ export class Login {
   password: string;
 
   login(): void {
-    this.authenticationService.login(new User(this.email, this.password))
+    // var hashedPassword = sjcl.hash.sha256.hash(this.password);
+    var hashedPassword = sha256.sha256.create().update(this.password).toString();
+    console.log('hashedPassword=', hashedPassword);
+    this.authenticationService.login(new User(this.email, hashedPassword))
       .subscribe(result => {
-        if (result) {
+        if (result === true) {
           this.router.navigateByUrl('/pages/dashboard')
         }
       })

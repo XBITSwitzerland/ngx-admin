@@ -58,7 +58,7 @@ export class GenericHttpService {
     return this.http.post(url, body)
       .catch(error => {
         this.errorHandlerService.handleError(error);
-        return error;
+        return Observable.empty();
       });
   }
 

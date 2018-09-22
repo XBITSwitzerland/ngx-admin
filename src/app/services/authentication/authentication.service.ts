@@ -21,7 +21,7 @@ export class AuthenticationService {
             token => {
               this.cookieService.setToken(token);
               this.loggedIn = true;
-              observer.next(true)
+              observer.next(true);
             },
             error => {
               observer.next(false);
@@ -39,9 +39,6 @@ export class AuthenticationService {
           .subscribe(
             success => {
               observer.next(true);
-            },
-            error => {
-              observer.next(false);
             }
           )
       }
