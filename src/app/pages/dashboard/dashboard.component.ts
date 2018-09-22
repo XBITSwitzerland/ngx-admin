@@ -9,6 +9,8 @@ import { DataType } from '../../entities/enums/data-type';
   templateUrl: './dashboard.html'
 })
 export class Dashboard {
+  CoinArray: CoinMarketCapCoin[] = [];
+  bitcoin: CoinMarketCapCoin;
 
   constructor(
     private dataService: DataService
