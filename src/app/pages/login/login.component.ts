@@ -15,7 +15,6 @@ export class Login {
   password: string;
 
   login(): void {
-    // var hashedPassword = sjcl.hash.sha256.hash(this.password);
     var hashedPassword = sha256.sha256.create().update(this.password).toString();
     console.log('hashedPassword=', hashedPassword);
     this.authenticationService.login(new User(this.email, hashedPassword))
