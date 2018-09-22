@@ -12,12 +12,6 @@ export class Dashboard {
 
   constructor(
     private dataService: DataService
-  ) {
-    dataService.coinMarketCapCoins.subscribe( res => {
-      res.forEach(element => {
-        //console.log("Coin: " + JSON.stringify(element, null, 2));
-      });
-    });
-   }
+  ) { }
 
 }

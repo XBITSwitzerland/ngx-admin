@@ -17,7 +17,6 @@ export class BalanceTable {
       res.forEach(element => {
         this.balanceTableData.push(element);
       });
-      console.log("CoinTable: " + this.balanceTableData);
     });
   }
 }

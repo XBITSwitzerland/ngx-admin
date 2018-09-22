@@ -18,7 +18,6 @@ export class CoinTable {
       res.forEach(element => {
         this.coinTableData.push(element);
       });
-      console.log("CoinTable: " + this.coinTableData);
     });
   }
 }
