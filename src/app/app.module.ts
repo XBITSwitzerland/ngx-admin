@@ -19,12 +19,12 @@ import { PagesModule } from './pages/pages.module';
 import { ErrorHandlerService } from './services/errorhandler/error-handler.service';
 import { GenericHttpService } from './services/generichttp/generic-http.service';
 import { CoinMarketCapService } from './services/coinmarketcap/coinmarketcap.service';
-import { ErrorMessageService } from './services/errormessage/error-message.service';
 import { HttpClientModule, HttpClient, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataService } from './services/data/data.service';
-import { XBitApiService } from './services/xbitapi/xbit-api.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProxyInterceptor } from './services/proxy/proxy-interceptor.service';
-
+import { XBitApiService } from './services/xbitapi/xbit-api.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -48,6 +48,7 @@ export type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
     RouterModule,
@@ -57,11 +58,11 @@ export type StoreType = {
     NgbModule.forRoot(),
     PagesModule,
     routing,
+    ToastrModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
     ErrorHandlerService,
-    ErrorMessageService,
     GenericHttpService,
     CoinMarketCapService,
     HttpClient,
@@ -71,7 +72,8 @@ export type StoreType = {
       provide: HTTP_INTERCEPTORS,
       useClass: ProxyInterceptor,
       multi: true
-    }
+    },
+    ToastrService
   ]
 })
 
@@ -79,4 +81,4 @@ export class AppModule {
 
   constructor(public appState: AppState) {
   }
-}
+}CoinMarketCapService
