@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { User } from '../../entities/XBitApi/user';
+import { Router } from '@angular/router';
+import * as sha256 from 'js-sha256';
 
 @Component({
   selector: 'login',
@@ -8,26 +11,26 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 })
 export class Login {
 
-  public form:FormGroup;
-  public email:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
+  email: string;
+  password: string;
 
-  constructor(fb:FormBuilder) {
-    this.form = fb.group({
-      'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-    });
-
-    this.email = this.form.controls['email'];
-    this.password = this.form.controls['password'];
+  login(): void {
+    var hashedPassword = sha256.sha256.create().update(this.password).toString();
+    console.log('hashedPassword=', hashedPassword);
+    this.authenticationService.login(new User(this.email, hashedPassword))
+      .subscribe(result => {
+        if (result === true) {
+          this.router.navigateByUrl('/pages/dashboard')
+        }
+      })
   }
 
-  public onSubmit(values:Object):void {
-    this.submitted = true;
-    if (this.form.valid) {
-      // your code goes here
-      // console.log(values);
-    }
+  goToRegister(): void {
+    this.router.navigateByUrl('/register')
   }
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) { }
 }

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'logout',
@@ -9,7 +9,17 @@ import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 })
 export class Logout {
 
-  constructor() {
-
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {
+    if (authenticationService.loggedIn) {
+      authenticationService.logout().subscribe(result => {
+        if (result === true)
+          router.navigateByUrl('/login');
+      })
+    } else {
+      router.navigateByUrl('/pages/dashboard');
+    }
   }
 }

@@ -1,6 +1,13 @@
 import {Component} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { User } from '../../entities/XBitApi/user';
+import { Router } from '@angular/router';
+import * as sha256 from 'js-sha256';
+import { ZipOperator } from 'rxjs/operator/zip';
+import { Country } from '../../entities/XBitApi/country'
+import { DataService } from '../../services/data/data.service';
+import { DataType } from '../../entities/enums/data-type';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'register',
@@ -9,38 +16,79 @@ import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 })
 export class Register {
 
-  public form:FormGroup;
-  public name:AbstractControl;
-  public email:AbstractControl;
-  public password:AbstractControl;
-  public repeatPassword:AbstractControl;
-  public passwords:FormGroup;
+  name: string;
+  surname: string;
+  phone: string;
+  birthMonth: number;
+  birthDay: number;
+  birthYear: number;
+  username: string;
+  street: string;
+  place: string;
+  zip: string;
+  email: string;
+  password: string;
+  passwordConfirmation: string;
+  countries: Country[];
+  selectedCountry: Country;
 
-  public submitted:boolean = false;
+  register(): void {
+    var flags = [];
+    var birthDate = this.birthYear + '-' + this.birthMonth + '-' + this.birthDay + ' 00:00:00.0000000';
 
-  constructor(fb:FormBuilder) {
+    
 
-    this.form = fb.group({
-      'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'email': ['', Validators.compose([Validators.required, EmailValidator.validate])],
-      'passwords': fb.group({
-        'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-        'repeatPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-      }, {validator: EqualPasswordsValidator.validate('password', 'repeatPassword')})
-    });
+    if (this.password !== this.passwordConfirmation)
+      flags.push('Passwords are not identical!');
 
-    this.name = this.form.controls['name'];
-    this.email = this.form.controls['email'];
-    this.passwords = <FormGroup> this.form.controls['passwords'];
-    this.password = this.passwords.controls['password'];
-    this.repeatPassword = this.passwords.controls['repeatPassword'];
-  }
+    if (this.birthDay > 31)
+      flags.push('Birthday can not be higher than 31');
 
-  public onSubmit(values:Object):void {
-    this.submitted = true;
-    if (this.form.valid) {
-      // your code goes here
-      // console.log(values);
+    if (this.birthMonth > 12)
+      flags.push('Birthmonth can not be higher than 12');
+
+    if (this.birthYear > (new Date()).getFullYear())
+      flags.push('Your Birthday can not be in the future');
+
+    if (flags.length > 0) {
+      flags.forEach(flag => {
+        this.toastrService.error(flag, 'Error Registering!');
+      })
+    } else {
+      var hashedPassword = sha256.sha256.create().update(this.password).toString();
+      var requestBody = {
+        Password: hashedPassword,
+        Name: this.name,
+        Surname: this.surname,
+        BirthDate: birthDate,
+        Username: this.username,
+        UserClaimsRoles: {
+          Roles: []
+        },
+        Address: {
+          Street: this.street,
+          Place: this.place,
+          Zip: this.zip,
+          CountryName: this.selectedCountry.name
+        }
+      };
+      this.authenticationService.register(requestBody).subscribe(res => {
+        if (res === true) {
+          this.router.navigateByUrl('/login');
+        }
+      })
     }
+  }
+  
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private dataService: DataService,
+    private toastrService: ToastrService
+  ) { 
+    dataService.update(DataType.XBitApi, 'Country');
+    dataService.countries.subscribe(countries => {
+      this.countries = countries;
+    });
   }
 }

@@ -1,45 +1,138 @@
-
 <main class="auth-main">
-    <div class="auth-block">
-        <div class="auth-header">
-          <div class="auth-header-logo">
-            <img class="auth-logo" src="assets/img/xbit/XBIT_Logo_Weiss.png" alt="XBIT Logo">
-          </div>
-          <div class="auth-header-title">
-            <h1 class="auth-title">XBIT Monitoring</h1>
+  <div class="auth-block">
+    <div class="auth-header">
+      <div class="auth-header-logo">
+        <img class="auth-logo" src="assets/img/xbit/XBIT_Logo_Weiss.png" alt="XBIT Logo">
+      </div>
+      <div class="auth-header-title">
+        <h1 class="auth-title">XBIT Monitoring</h1>
+      </div>
+    </div>
+    <div class="auth-block-content">
+      <form class="form-horizontal" (submit)="register()">
+
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 auth-label control-label">Name</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputName" placeholder="Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputSurname" class="col-sm-2 auth-label control-label">Surname</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputSurname" placeholder="Surname" [(ngModel)]="surname" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPhone" class="col-sm-2 auth-label control-label">Phone</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputPhone" placeholder="Phone Number" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputBirthDay" class="col-sm-2 auth-label control-label">Birthday</label>
+    
+            <div class="col-sm-12">
+              <input type="number" class="form-control auth-input-own" id="inputBirthDay" placeholder="Birthday" [(ngModel)]="birthDay" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputBirthMonth" class="col-sm-2 auth-label control-label">birthmonth</label>
+    
+            <div class="col-sm-12">
+              <input type="number" class="form-control auth-input-own" id="inputBirthMonth" placeholder="Birthmonth" [(ngModel)]="birthMonth" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputBirthYear" class="col-sm-2 auth-label control-label">Birthyear</label>
+    
+            <div class="col-sm-12">
+              <input type="number" class="form-control auth-input-own" id="inputBirthYear" placeholder="Birthyear" [(ngModel)]="birthYear" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputUsername" class="col-sm-2 auth-label control-label">Username</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputUsername" placeholder="Username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputStreet" class="col-sm-2 auth-label control-label">Street</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputStreet" placeholder="Street" [(ngModel)]="street" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputZip" class="col-sm-2 auth-label control-label">Zipcode</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputZip" placeholder="Zip Code" [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPlace" class="col-sm-2 auth-label control-label">Place</label>
+    
+            <div class="col-sm-12">
+              <input type="text" class="form-control auth-input-own" id="inputPlace" placeholder="Place" [(ngModel)]="place" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputCountry" class="col-sm-2 auth-label control-label">Country</label>
+    
+            <div class="col-sm-12">
+              <select class="form-control" name="country" id="inputCountry" [(ngModel)]="selectedCountry" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let country of countries" value="{{country.name}}">{{country.name}}</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 auth-label control-label">Email</label>
+
+          <div class="col-sm-12">
+            <input type="email" class="form-control auth-input-own" id="inputEmail3" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
-        <div class="auth-block-content">
-        <!--<a href="auth.html" class="auth-link">Already have a XBIT Monitoring account? Sign in!</a>-->
-    
-        <form class="form-horizontal">
-            <div class="form-group">
-              <label for="inputName3" class="col-sm-2 auth-label control-label">Name</label>
-      
-              <div class="col-sm-12">
-                <input type="text" class="form-control auth-input-own" id="inputName3" placeholder="Full Name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 auth-label control-label">Email</label>
-      
-              <div class="col-sm-12">
-                <input type="email" class="form-control auth-input-own" id="inputEmail3" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 auth-label control-label">Password</label>
-      
-              <div class="col-sm-12">
-                <input type="password" class="form-control auth-input-own" id="inputPassword3" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-12 auth-footer">
-                <button type="submit" class="btn btn-default btn-auth">Sign up</button>
-              </div>
-            </div>
-          </form>
-      </div>
-      </div>
+
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 auth-label control-label">Password</label>
+
+          <div class="col-sm-12">
+            <input type="password" class="form-control auth-input-own" id="inputPassword3" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword4" class="col-sm-2 auth-label control-label">Passwordconfirmation</label>
+
+          <div class="col-sm-12">
+            <input type="password" class="form-control auth-input-own" id="inputPassword4" placeholder="Password Confirmation" [(ngModel)]="passwordConfirmation" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12 auth-footer">
+            <button type="submit" class="btn btn-default btn-auth">Register</button>
+            <!-- <a href class="forgot-pass">Forgot password?</a> -->
+          </div>
+        </div>
+        
+      </form>
+    </div>
+  </div>
 </main>
