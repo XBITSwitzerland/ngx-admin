@@ -25,9 +25,12 @@
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-12 auth-footer">
+        <div class="col-sm-6 auth-footer">
           <button type="submit" class="btn btn-default btn-auth">Sign in</button>
           <!-- <a href class="forgot-pass">Forgot password?</a> -->
+        </div>
+        <div class="col-sm-6 auth-footer">
+          <button type="button" (click)="goToRegister()" class="btn btn-default btn-auth">Register</button>
         </div>
       </div>
     </form>

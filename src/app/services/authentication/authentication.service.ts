@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import * as jwtDecode from 'jwt-decode';
 
 import { User } from '../../entities/XBitApi/user';
+import { RegistrationBody } from '../../entities/XBitApi/registration-body';
 
 @Injectable()
 export class AuthenticationService {
@@ -54,6 +55,18 @@ export class AuthenticationService {
       return !(currentTime > token.exp);
     }
     return false;
+  }
+
+  register(body: RegistrationBody): Observable<boolean> {
+    return new Observable(observer => {
+      var url = this.baseUrl + 'User/CreateUser';
+      this.genericHttpService.postWithResponse(url, body)
+        .subscribe(
+          success => {
+            observer.next(true);
+          }
+        )
+    })
   }
 
   constructor(

@@ -25,6 +25,10 @@ export class Login {
       })
   }
 
+  goToRegister(): void {
+    this.router.navigateByUrl('/register')
+  }
+
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
